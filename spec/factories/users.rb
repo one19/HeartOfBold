@@ -15,6 +15,13 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string
+#  admin                  :boolean
+#  highest_level          :integer
+#  rooms_explored         :float
+#  enemies_killed         :float
+#  emblem                 :text
+#  title                  :string
 #
 
 FactoryGirl.define do
