@@ -1,6 +1,14 @@
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                    Controller#Action
+#                     guns GET    /guns(.:format)                guns#index
+#                          POST   /guns(.:format)                guns#create
+#                  new_gun GET    /guns/new(.:format)            guns#new
+#                 edit_gun GET    /guns/:id/edit(.:format)       guns#edit
+#                      gun GET    /guns/:id(.:format)            guns#show
+#                          PATCH  /guns/:id(.:format)            guns#update
+#                          PUT    /guns/:id(.:format)            guns#update
+#                          DELETE /guns/:id(.:format)            guns#destroy
 #               characters GET    /characters(.:format)          characters#index
 #                          POST   /characters(.:format)          characters#create
 #            new_character GET    /characters/new(.:format)      characters#new
@@ -28,6 +36,7 @@
 #
 
 Rails.application.routes.draw do
+  resources :guns
   resources :characters
   devise_for :users
   root to: "home#index"

@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Guns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Length</th>
+      <th>Damage</th>
+      <th>Fire rate</th>
+      <th>Clip size</th>
+      <th>Reload time</th>
+      <th>Proj size</th>
+      <th>Proj speed</th>
+      <th>Proj distance</th>
+      <th>Proj number</th>
+      <th>Proj spread</th>
+      <th>Functions</th>
+      <th>Sprite</th>
+      <th>Sprite firing</th>
+      <th>Sprite reload</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guns.each do |gun| %>
+      <tr>
+        <td><%= gun.name %></td>
+        <td><%= gun.description %></td>
+        <td><%= gun.length %></td>
+        <td><%= gun.damage %></td>
+        <td><%= gun.fire_rate %></td>
+        <td><%= gun.clip_size %></td>
+        <td><%= gun.reload_time %></td>
+        <td><%= gun.proj_size %></td>
+        <td><%= gun.proj_speed %></td>
+        <td><%= gun.proj_distance %></td>
+        <td><%= gun.proj_number %></td>
+        <td><%= gun.proj_spread %></td>
+        <td><%= gun.functions %></td>
+        <td><%= gun.sprite %></td>
+        <td><%= gun.sprite_firing %></td>
+        <td><%= gun.sprite_reload %></td>
+        <td><%= link_to 'Show', gun %></td>
+        <td><%= link_to 'Edit', edit_gun_path(gun) %></td>
+        <td><%= link_to 'Destroy', gun, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gun', new_gun_path %>

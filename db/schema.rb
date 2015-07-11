@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711104012) do
+ActiveRecord::Schema.define(version: 20150711104613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,27 @@ ActiveRecord::Schema.define(version: 20150711104012) do
     t.integer  "secondary_ability_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "guns", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "length"
+    t.float    "damage"
+    t.float    "fire_rate"
+    t.integer  "clip_size"
+    t.float    "reload_time"
+    t.float    "proj_size"
+    t.float    "proj_speed"
+    t.integer  "proj_distance"
+    t.integer  "proj_number"
+    t.integer  "proj_spread"
+    t.text     "functions"
+    t.text     "sprite"
+    t.text     "sprite_firing"
+    t.text     "sprite_reload"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
