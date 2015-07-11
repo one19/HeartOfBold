@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711104613) do
+ActiveRecord::Schema.define(version: 20150711105044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,18 @@ ActiveRecord::Schema.define(version: 20150711104613) do
     t.text     "sprite"
     t.text     "sprite_firing"
     t.text     "sprite_reload"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "projectiles", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "element"
+    t.text     "functions"
+    t.text     "sprite"
+    t.text     "sprite_start"
+    t.text     "sprite_finish"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

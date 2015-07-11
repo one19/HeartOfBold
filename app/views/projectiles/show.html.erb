@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @projectile.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @projectile.description %>
+</p>
+
+<p>
+  <strong>Element:</strong>
+  <%= @projectile.element %>
+</p>
+
+<p>
+  <strong>Functions:</strong>
+  <%= @projectile.functions %>
+</p>
+
+<p>
+  <strong>Sprite:</strong>
+  <%= @projectile.sprite %>
+</p>
+
+<p>
+  <strong>Sprite start:</strong>
+  <%= @projectile.sprite_start %>
+</p>
+
+<p>
+  <strong>Sprite finish:</strong>
+  <%= @projectile.sprite_finish %>
+</p>
+
+<%= link_to 'Edit', edit_projectile_path(@projectile) %> |
+<%= link_to 'Back', projectiles_path %>
