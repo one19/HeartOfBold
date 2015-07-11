@@ -1,6 +1,38 @@
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                     Controller#Action
+#                   biomes GET    /biomes(.:format)               biomes#index
+#                          POST   /biomes(.:format)               biomes#create
+#                new_biome GET    /biomes/new(.:format)           biomes#new
+#               edit_biome GET    /biomes/:id/edit(.:format)      biomes#edit
+#                    biome GET    /biomes/:id(.:format)           biomes#show
+#                          PATCH  /biomes/:id(.:format)           biomes#update
+#                          PUT    /biomes/:id(.:format)           biomes#update
+#                          DELETE /biomes/:id(.:format)           biomes#destroy
+#                    rooms GET    /rooms(.:format)                rooms#index
+#                          POST   /rooms(.:format)                rooms#create
+#                 new_room GET    /rooms/new(.:format)            rooms#new
+#                edit_room GET    /rooms/:id/edit(.:format)       rooms#edit
+#                     room GET    /rooms/:id(.:format)            rooms#show
+#                          PATCH  /rooms/:id(.:format)            rooms#update
+#                          PUT    /rooms/:id(.:format)            rooms#update
+#                          DELETE /rooms/:id(.:format)            rooms#destroy
+#                   titles GET    /titles(.:format)               titles#index
+#                          POST   /titles(.:format)               titles#create
+#                new_title GET    /titles/new(.:format)           titles#new
+#               edit_title GET    /titles/:id/edit(.:format)      titles#edit
+#                    title GET    /titles/:id(.:format)           titles#show
+#                          PATCH  /titles/:id(.:format)           titles#update
+#                          PUT    /titles/:id(.:format)           titles#update
+#                          DELETE /titles/:id(.:format)           titles#destroy
+#                abilities GET    /abilities(.:format)            abilities#index
+#                          POST   /abilities(.:format)            abilities#create
+#              new_ability GET    /abilities/new(.:format)        abilities#new
+#             edit_ability GET    /abilities/:id/edit(.:format)   abilities#edit
+#                  ability GET    /abilities/:id(.:format)        abilities#show
+#                          PATCH  /abilities/:id(.:format)        abilities#update
+#                          PUT    /abilities/:id(.:format)        abilities#update
+#                          DELETE /abilities/:id(.:format)        abilities#destroy
 #              projectiles GET    /projectiles(.:format)          projectiles#index
 #                          POST   /projectiles(.:format)          projectiles#create
 #           new_projectile GET    /projectiles/new(.:format)      projectiles#new
@@ -44,6 +76,10 @@
 #
 
 Rails.application.routes.draw do
+  resources :biomes
+  resources :rooms
+  resources :titles
+  resources :abilities
   resources :projectiles
   resources :guns
   resources :characters

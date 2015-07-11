@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711105044) do
+ActiveRecord::Schema.define(version: 20150711105627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abilities", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.float    "power_mod"
+    t.text     "context"
+    t.text     "functions"
+    t.string   "sprite"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "biomes", force: :cascade do |t|
+    t.text     "map_mat"
+    t.text     "description"
+    t.string   "name"
+    t.text     "functions"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -77,6 +97,23 @@ ActiveRecord::Schema.define(version: 20150711105044) do
     t.text     "sprite_finish"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer  "orientation"
+    t.integer  "size"
+    t.text     "functions"
+    t.text     "sprite"
+    t.integer  "biome_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "titles", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,33 @@
+<%= form_for(@biome) do |f| %>
+  <% if @biome.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@biome.errors.count, "error") %> prohibited this biome from being saved:</h2>
+
+      <ul>
+      <% @biome.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :map_mat %><br>
+    <%= f.text_area :map_mat %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :functions %><br>
+    <%= f.text_area :functions %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

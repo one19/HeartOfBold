@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Abilities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Power mod</th>
+      <th>Context</th>
+      <th>Functions</th>
+      <th>Sprite</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @abilities.each do |ability| %>
+      <tr>
+        <td><%= ability.name %></td>
+        <td><%= ability.description %></td>
+        <td><%= ability.power_mod %></td>
+        <td><%= ability.context %></td>
+        <td><%= ability.functions %></td>
+        <td><%= ability.sprite %></td>
+        <td><%= link_to 'Show', ability %></td>
+        <td><%= link_to 'Edit', edit_ability_path(ability) %></td>
+        <td><%= link_to 'Destroy', ability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ability', new_ability_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Orientation:</strong>
+  <%= @room.orientation %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @room.size %>
+</p>
+
+<p>
+  <strong>Functions:</strong>
+  <%= @room.functions %>
+</p>
+
+<p>
+  <strong>Sprite:</strong>
+  <%= @room.sprite %>
+</p>
+
+<p>
+  <strong>Biome:</strong>
+  <%= @room.biome_id %>
+</p>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>

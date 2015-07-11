@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Map mat:</strong>
+  <%= @biome.map_mat %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @biome.description %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @biome.name %>
+</p>
+
+<p>
+  <strong>Functions:</strong>
+  <%= @biome.functions %>
+</p>
+
+<%= link_to 'Edit', edit_biome_path(@biome) %> |
+<%= link_to 'Back', biomes_path %>
