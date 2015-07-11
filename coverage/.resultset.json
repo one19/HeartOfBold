@@ -1052,6 +1052,10 @@
         null,
         1,
         null,
+        1,
+        1,
+        1,
+        1,
         null
       ],
       "/Users/werd119/fundamentals/HeartOfBold/app/helpers/abilities_helper.rb": [
@@ -2750,6 +2754,8 @@
         null,
         null,
         1,
+        1,
+        1,
         null
       ],
       "/Users/werd119/fundamentals/HeartOfBold/spec/models/biome_spec.rb": [
@@ -2786,6 +2792,7 @@
         null,
         null,
         null,
+        1,
         1,
         null
       ],
@@ -2866,6 +2873,16 @@
         null,
         null,
         1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
         null
       ],
       "/Users/werd119/fundamentals/HeartOfBold/spec/models/gun_spec.rb": [
@@ -2927,6 +2944,11 @@
         null,
         null,
         1,
+        1,
+        1,
+        null,
+        1,
+        1,
         null
       ],
       "/Users/werd119/fundamentals/HeartOfBold/spec/models/projectile_spec.rb": [
@@ -2970,6 +2992,8 @@
         null,
         null,
         1,
+        1,
+        1,
         null
       ],
       "/Users/werd119/fundamentals/HeartOfBold/spec/models/room_spec.rb": [
@@ -3009,6 +3033,7 @@
         null,
         null,
         1,
+        1,
         null
       ],
       "/Users/werd119/fundamentals/HeartOfBold/spec/models/title_spec.rb": [
@@ -3041,6 +3066,8 @@
         null,
         null,
         null,
+        1,
+        1,
         1,
         null
       ],
@@ -4626,6 +4653,6 @@
         null
       ]
     },
-    "timestamp": 1436612254
+    "timestamp": 1436614563
   }
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711105627) do
+ActiveRecord::Schema.define(version: 20150711111850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20150711105627) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "ability_characters", id: false, force: :cascade do |t|
+    t.integer "ability_id"
+    t.integer "character_id"
+  end
+
   create_table "biomes", force: :cascade do |t|
     t.text     "map_mat"
     t.text     "description"
@@ -34,6 +39,16 @@ ActiveRecord::Schema.define(version: 20150711105627) do
     t.text     "functions"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "character_guns", id: false, force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "gun_id"
+  end
+
+  create_table "character_titles", id: false, force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "title_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -64,6 +79,11 @@ ActiveRecord::Schema.define(version: 20150711105627) do
     t.integer  "secondary_ability_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+  end
+
+  create_table "gun_projectiles", id: false, force: :cascade do |t|
+    t.integer "gun_id"
+    t.integer "projectile_id"
   end
 
   create_table "guns", force: :cascade do |t|

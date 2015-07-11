@@ -24,4 +24,9 @@
 #
 
 class Gun < ActiveRecord::Base
+  has_many :character_guns
+  has_many :characters, :through => :character_guns
+
+  has_many :gun_projectiles
+  has_many :projectiles, :through => :gun_projectiles
 end

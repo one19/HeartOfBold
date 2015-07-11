@@ -33,4 +33,14 @@
 #
 
 class Character < ActiveRecord::Base
+  belongs_to :user
+  
+  has_many :ability_characters
+  has_many :abilities, :through => :ability_characters
+
+  has_many :character_guns
+  has_many :guns, :through => :character_guns
+
+  has_many :character_titles
+  has_many :titles, :through => :character_titles
 end

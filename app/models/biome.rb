@@ -12,4 +12,5 @@
 #
 
 class Biome < ActiveRecord::Base
+  has_many :rooms
 end

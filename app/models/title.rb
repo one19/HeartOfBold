@@ -10,4 +10,6 @@
 #
 
 class Title < ActiveRecord::Base
+  has_many :character_titles
+  has_many :characters, :through => :character_titles
 end

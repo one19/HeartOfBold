@@ -14,4 +14,6 @@
 #
 
 class Ability < ActiveRecord::Base
+  has_many :ability_characters
+  has_many :characters, :through => :ability_characters
 end
