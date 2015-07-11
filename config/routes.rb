@@ -1,6 +1,14 @@
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                    Controller#Action
+#               characters GET    /characters(.:format)          characters#index
+#                          POST   /characters(.:format)          characters#create
+#            new_character GET    /characters/new(.:format)      characters#new
+#           edit_character GET    /characters/:id/edit(.:format) characters#edit
+#                character GET    /characters/:id(.:format)      characters#show
+#                          PATCH  /characters/:id(.:format)      characters#update
+#                          PUT    /characters/:id(.:format)      characters#update
+#                          DELETE /characters/:id(.:format)      characters#destroy
 #         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)       devise/sessions#create
 #     destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
@@ -20,6 +28,7 @@
 #
 
 Rails.application.routes.draw do
+  resources :characters
   devise_for :users
   root to: "home#index"
 end

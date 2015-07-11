@@ -1,0 +1,117 @@
+<%= form_for(@character) do |f| %>
+  <% if @character.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+
+      <ul>
+      <% @character.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :exp %><br>
+    <%= f.text_field :exp %>
+  </div>
+  <div class="field">
+    <%= f.label :hp %><br>
+    <%= f.text_field :hp %>
+  </div>
+  <div class="field">
+    <%= f.label :hp_regen %><br>
+    <%= f.text_field :hp_regen %>
+  </div>
+  <div class="field">
+    <%= f.label :power %><br>
+    <%= f.text_field :power %>
+  </div>
+  <div class="field">
+    <%= f.label :power_regen %><br>
+    <%= f.text_field :power_regen %>
+  </div>
+  <div class="field">
+    <%= f.label :speed %><br>
+    <%= f.text_field :speed %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.number_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :move_type %><br>
+    <%= f.text_field :move_type %>
+  </div>
+  <div class="field">
+    <%= f.label :element %><br>
+    <%= f.text_field :element %>
+  </div>
+  <div class="field">
+    <%= f.label :color_schema %><br>
+    <%= f.text_area :color_schema %>
+  </div>
+  <div class="field">
+    <%= f.label :emblem %><br>
+    <%= f.text_area :emblem %>
+  </div>
+  <div class="field">
+    <%= f.label :functions %><br>
+    <%= f.text_area :functions %>
+  </div>
+  <div class="field">
+    <%= f.label :sprite %><br>
+    <%= f.text_area :sprite %>
+  </div>
+  <div class="field">
+    <%= f.label :sprite_idle %><br>
+    <%= f.text_area :sprite_idle %>
+  </div>
+  <div class="field">
+    <%= f.label :sprite_death %><br>
+    <%= f.text_area :sprite_death %>
+  </div>
+  <div class="field">
+    <%= f.label :sprite_hat %><br>
+    <%= f.text_area :sprite_hat %>
+  </div>
+  <div class="field">
+    <%= f.label :sprite_jacket %><br>
+    <%= f.text_area :sprite_jacket %>
+  </div>
+  <div class="field">
+    <%= f.label :sprite_shoes %><br>
+    <%= f.text_area :sprite_shoes %>
+  </div>
+  <div class="field">
+    <%= f.label :sprite_scarf %><br>
+    <%= f.text_area :sprite_scarf %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :prime_gun_id %><br>
+    <%= f.number_field :prime_gun_id %>
+  </div>
+  <div class="field">
+    <%= f.label :secondary_gun_id %><br>
+    <%= f.number_field :secondary_gun_id %>
+  </div>
+  <div class="field">
+    <%= f.label :prime_ability_id %><br>
+    <%= f.number_field :prime_ability_id %>
+  </div>
+  <div class="field">
+    <%= f.label :secondary_ability_id %><br>
+    <%= f.number_field :secondary_ability_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

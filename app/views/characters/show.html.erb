@@ -1,0 +1,129 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @character.name %>
+</p>
+
+<p>
+  <strong>Exp:</strong>
+  <%= @character.exp %>
+</p>
+
+<p>
+  <strong>Hp:</strong>
+  <%= @character.hp %>
+</p>
+
+<p>
+  <strong>Hp regen:</strong>
+  <%= @character.hp_regen %>
+</p>
+
+<p>
+  <strong>Power:</strong>
+  <%= @character.power %>
+</p>
+
+<p>
+  <strong>Power regen:</strong>
+  <%= @character.power_regen %>
+</p>
+
+<p>
+  <strong>Speed:</strong>
+  <%= @character.speed %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @character.size %>
+</p>
+
+<p>
+  <strong>Move type:</strong>
+  <%= @character.move_type %>
+</p>
+
+<p>
+  <strong>Element:</strong>
+  <%= @character.element %>
+</p>
+
+<p>
+  <strong>Color schema:</strong>
+  <%= @character.color_schema %>
+</p>
+
+<p>
+  <strong>Emblem:</strong>
+  <%= @character.emblem %>
+</p>
+
+<p>
+  <strong>Functions:</strong>
+  <%= @character.functions %>
+</p>
+
+<p>
+  <strong>Sprite:</strong>
+  <%= @character.sprite %>
+</p>
+
+<p>
+  <strong>Sprite idle:</strong>
+  <%= @character.sprite_idle %>
+</p>
+
+<p>
+  <strong>Sprite death:</strong>
+  <%= @character.sprite_death %>
+</p>
+
+<p>
+  <strong>Sprite hat:</strong>
+  <%= @character.sprite_hat %>
+</p>
+
+<p>
+  <strong>Sprite jacket:</strong>
+  <%= @character.sprite_jacket %>
+</p>
+
+<p>
+  <strong>Sprite shoes:</strong>
+  <%= @character.sprite_shoes %>
+</p>
+
+<p>
+  <strong>Sprite scarf:</strong>
+  <%= @character.sprite_scarf %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @character.user_id %>
+</p>
+
+<p>
+  <strong>Prime gun:</strong>
+  <%= @character.prime_gun_id %>
+</p>
+
+<p>
+  <strong>Secondary gun:</strong>
+  <%= @character.secondary_gun_id %>
+</p>
+
+<p>
+  <strong>Prime ability:</strong>
+  <%= @character.prime_ability_id %>
+</p>
+
+<p>
+  <strong>Secondary ability:</strong>
+  <%= @character.secondary_ability_id %>
+</p>
+
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Back', characters_path %>
