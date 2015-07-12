@@ -11,8 +11,8 @@
 
 FactoryGirl.define do
   factory :title do
-    name "MyString"
-description "MyText"
+    name { Faker::Name.title }
+    description { Faker::Lorem.paragraph }
   end
 
 end

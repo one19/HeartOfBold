@@ -14,11 +14,11 @@
 
 FactoryGirl.define do
   factory :room do
-    orientation 1
-size 1
-functions "MyText"
-sprite "MyText"
-biome_id 1
+    orientation { Faker::Number.between(1, 4) }
+    size 1
+    functions { Faker::Lorem.paragraph(19) }
+    sprite sprite_firing { Faker::Avatar.image(nil, "800x600") }
+    #biome_id 1
   end
 
 end

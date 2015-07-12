@@ -6,7 +6,6 @@
 #  name        :string
 #  description :text
 #  power_mod   :float
-#  context     :text
 #  functions   :text
 #  sprite      :string
 #  created_at  :datetime         not null
@@ -15,12 +14,11 @@
 
 FactoryGirl.define do
   factory :ability do
-    name "MyString"
-description "MyText"
-power_mod 1.5
-context "MyText"
-functions "MyText"
-sprite "MyString"
+    name { Faker::Name.first_name }
+    description { Faker::Lorem.paragraph }
+    power_mod { Faker::Number.between(100, 20) / Faker::Number.between(10, 20) }
+    functions { Faker::Lorem.paragraph(19) }
+    sprite { Faker::Avatar.image(nil, "32x32") }
   end
 
 end

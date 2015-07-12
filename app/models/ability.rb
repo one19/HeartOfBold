@@ -6,7 +6,6 @@
 #  name        :string
 #  description :text
 #  power_mod   :float
-#  context     :text
 #  functions   :text
 #  sprite      :string
 #  created_at  :datetime         not null

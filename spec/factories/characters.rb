@@ -34,31 +34,31 @@
 
 FactoryGirl.define do
   factory :character do
-    name "MyString"
-exp 1.5
-hp 1.5
-hp_regen 1.5
-power 1.5
-power_regen 1.5
-speed 1.5
-size 1
-move_type "MyString"
-element "MyString"
-color_schema "MyText"
-emblem "MyText"
-functions "MyText"
-sprite "MyText"
-sprite_idle "MyText"
-sprite_death "MyText"
-sprite_hat "MyText"
-sprite_jacket "MyText"
-sprite_shoes "MyText"
-sprite_scarf "MyText"
-user_id 1
-prime_gun_id 1
-secondary_gun_id 1
-prime_ability_id 1
-secondary_ability_id 1
+    name { Faker::Name.name }
+    exp { Faker::Number.between(1, 100000) }
+    hp { Faker::Number.between(2, 10) }
+    hp_regen { Faker::Number.between(100, 20) / Faker::Number.between(10, 20) }
+    power { Faker::Number.between(0, 10) }
+    power_regen { Faker::Number.between(100, 20) / Faker::Number.between(10, 20) }
+    speed { Faker::Number.between(150, 300) }
+    size { Faker::Number.between(1, 5) / Faker::Number.between(1, 3) }
+    move_type "float"
+    element "none"
+    color_schema { Faker::Lorem.sentence }
+    emblem { Faker::Avatar.image(nil, "100x100") }
+    functions { Faker::Lorem.paragraph(19) }
+    sprite { Faker::Avatar.image(nil, "32x32") }
+    sprite_idle { Faker::Avatar.image(nil, "32x32") }
+    sprite_death { Faker::Avatar.image(nil, "32x32") }
+    sprite_hat { Faker::Avatar.image(nil, "32x32") }
+    sprite_jacket { Faker::Avatar.image(nil, "32x32") }
+    sprite_shoes { Faker::Avatar.image(nil, "32x32") }
+    sprite_scarf { Faker::Avatar.image(nil, "32x32") }
+    #user_id 1
+    #prime_gun_id 1
+    #secondary_gun_id 2
+    #prime_ability_id 1
+    #secondary_ability_id 2
   end
 
 end

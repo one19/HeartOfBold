@@ -16,13 +16,13 @@
 
 FactoryGirl.define do
   factory :projectile do
-    name "MyString"
-description "MyText"
-element "MyString"
-functions "MyText"
-sprite "MyText"
-sprite_start "MyText"
-sprite_finish "MyText"
+    name { Faker::Name.first_name }
+    description { Faker::Lorem.paragraph }
+    element "none"
+    functions { Faker::Lorem.paragraph(19) }
+    sprite { Faker::Avatar.image(nil, "32x32") }
+    sprite_start { Faker::Avatar.image(nil, "32x32") }
+    sprite_finish { Faker::Avatar.image(nil, "32x32") }
   end
 
 end

@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore-min
+//= require TweenMax.min
+//= require phaser.min
 //= require_tree .

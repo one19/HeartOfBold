@@ -50,6 +50,7 @@ group :development, :test do
   gem 'simplecov', :require => false
 
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'shoulda-matchers'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

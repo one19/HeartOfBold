@@ -25,22 +25,22 @@
 
 FactoryGirl.define do
   factory :gun do
-    name "MyString"
-description "MyText"
-length 1
-damage 1.5
-fire_rate 1.5
-clip_size 1
-reload_time 1.5
-proj_size 1.5
-proj_speed 1.5
-proj_distance 1
-proj_number 1
-proj_spread 1
-functions "MyText"
-sprite "MyText"
-sprite_firing "MyText"
-sprite_reload "MyText"
+    name { Faker::Name.first_name }
+    description { Faker::Lorem.paragraph }
+    length { Faker::Number.between(1, 16) }
+    damage { Faker::Number.between(20, 100) / Faker::Number.between(20, 16) }
+    fire_rate { Faker::Number.between(20, 100) / Faker::Number.between(20, 16) }
+    clip_size { Faker::Number.between(1, 36) }
+    reload_time { Faker::Number.between(20, 100) / Faker::Number.between(20, 16) }
+    proj_size { Faker::Number.between(1, 5) / Faker::Number.between(1, 3) }
+    proj_speed { Faker::Number.between(20, 100) / Faker::Number.between(20, 16) }
+    proj_distance { Faker::Number.between(1, 5) / Faker::Number.between(1, 3) }
+    proj_number { Faker::Number.between(1, 6) }
+    proj_spread { Faker::Number.between(1, 360) }
+    functions { Faker::Lorem.paragraph(19) }
+    sprite { Faker::Avatar.image(nil, "32x32") }
+    sprite_firing { Faker::Avatar.image(nil, "32x32") }
+    sprite_reload { Faker::Avatar.image(nil, "32x32") }
   end
 
 end

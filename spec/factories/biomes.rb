@@ -13,10 +13,10 @@
 
 FactoryGirl.define do
   factory :biome do
-    map_mat "MyText"
-description "MyText"
-name "MyString"
-functions "MyText"
+    map_mat { Faker::Lorem.paragraph(19) }
+    description { Faker::Lorem.paragraph }
+    name { Faker::Name.first_name }
+    functions { Faker::Lorem.paragraph(19) }
   end
 
 end

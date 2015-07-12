@@ -35,5 +35,82 @@
 require 'rails_helper'
 
 RSpec.describe Character, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  #pending "add some examples to (or delete) #{__FILE__}"
+
+  it {should belong_to :user}
+  it {should have_many :guns}
+  it {should have_many :abilities}
+
+  describe "A Character" do
+    before do
+      @user = User.create :name => "Butt Hook"
+      @gun1 = Gun.create :name => "shotgun"
+      @gun2 = Gun.create :name => "pistol"
+      @ability1 = Ability.create :name => "jump"
+      @ability2 = Ability.create :name => "slice"
+      @character = Character.create :name => 'Butters'
+    end
+
+    it "should have some stats" do
+    end
+
+    it "should have sprites" do
+    end
+
+    it "should be assigned at least one gun" do
+    end
+
+    it "should have correct ability assignment" do
+    end
+
+  end
+
 end
+
+
+# RSpec.describe Fruit, type: :model do
+#   #pending "add some examples to (or delete) #{__FILE__}"
+#   it { should belong_to :shelf }
+
+#   describe "An Apple" do
+#     before do
+#       @apple = Apple.create :name => 'Golden Delicious'
+#       # @apple = Fruit.new(:name => 'Apple')
+#     end
+
+#     it "Should not be squishy" do
+#       expect(@apple.squishy?).to be false
+#       expect(@apple.squishy?).to eq false
+#     end
+
+#     it "should remember the class via single table inheritance (STI)" do
+#       apple = Fruit.find(@apple.id)
+#       expect(apple.class).to eq Apple
+#       expect(apple).to eq @apple
+#       expect(apple.is_a?(Fruit)).to be true
+#       expect(apple.class.ancestors).to include Fruit
+#     end
+#   end
+
+#   describe "A pear" do
+#     before do
+#       @pear = Pear.create :name => 'Nazi'
+#     end
+
+#     it "Should be at least a bit squishy" do
+#       expect(@pear.squishy?).to be true
+#       expect(@pear.squishy?).to eq true
+#     end
+
+#     it "should remember the class via single table inheritance (STI)" do
+#       pear = Fruit.find(@pear.id)
+#       expect(pear.class).to eq Pear
+#       expect(pear).to eq @pear
+#       expect(pear.is_a?(Fruit)).to be true
+#       expect(pear.class.ancestors).to include Fruit
+#     end
+
+#   end
+
+# end
+

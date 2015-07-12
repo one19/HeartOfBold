@@ -26,7 +26,18 @@
 
 FactoryGirl.define do
   factory :user do
-    
+    email { Faker::Internet.email }
+    password "password"
+    password_confirmation "password"
+    last_sign_in_ip { Faker::Internet.ip_v4_address }
+    current_sign_in_ip { Faker::Internet.ip_v4_address }
+    name { Faker::Name.name }
+    admin false
+    highest_level { Faker::Number.between(1, 100) }
+    rooms_explored { Faker::Number.between(1, 1000) }
+    enemies_killed { Faker::Number.between(1, 100000) }
+    emblem { Faker::Avatar.image(nil, "100x100") }
+    title { Faker::Lorem.word }
   end
 
 end

@@ -72,7 +72,7 @@
 #                          PATCH  /users(.:format)                devise/registrations#update
 #                          PUT    /users(.:format)                devise/registrations#update
 #                          DELETE /users(.:format)                devise/registrations#destroy
-#                     root GET    /                               home#index
+#                     root GET    /                               pages#home
 #
 
 Rails.application.routes.draw do
@@ -84,5 +84,5 @@ Rails.application.routes.draw do
   resources :guns
   resources :characters
   devise_for :users
-  root to: "home#index"
+  root to: "pages#home"
 end
