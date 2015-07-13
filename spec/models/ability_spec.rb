@@ -15,5 +15,18 @@
 require 'rails_helper'
 
 RSpec.describe Ability, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "A Character" do
+    before do
+      @ability = Ability.create FactoryGirl.build(:ability).attributes
+    end
+
+    it "should be a valid ability" do
+      ability = Ability.find(@ability.id)
+      expect(ability.power_mod).to be > 0
+      expect(ability.name).to_not eq nil
+      expect(ability.sprite).to_not eq nil
+      expect(ability.functions).to_not eq nil
+    end
+
+  end
 end

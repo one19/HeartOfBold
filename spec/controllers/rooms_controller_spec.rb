@@ -28,7 +28,7 @@ RSpec.describe RoomsController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { 'sprite' => nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,14 @@ RSpec.describe RoomsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { :sprite => 'map' }
       }
 
       it "updates the requested room" do
         room = Room.create! valid_attributes
         put :update, {:id => room.to_param, :room => new_attributes}, valid_session
         room.reload
-        skip("Add assertions for updated state")
+        expect(room.sprite).to eq 'map'
       end
 
       it "assigns the requested room as @room" do

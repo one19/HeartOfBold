@@ -28,7 +28,8 @@ RSpec.describe AbilitiesController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { 'name' => nil }
+    { 'functions' => nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +104,14 @@ RSpec.describe AbilitiesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { :name => 'Jump'}
       }
 
       it "updates the requested ability" do
         ability = Ability.create! valid_attributes
         put :update, {:id => ability.to_param, :ability => new_attributes}, valid_session
         ability.reload
-        skip("Add assertions for updated state")
+        expect(ability.name).to eq 'Jump'
       end
 
       it "assigns the requested ability as @ability" do

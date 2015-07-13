@@ -33,13 +33,17 @@
 #
 
 class Character < ActiveRecord::Base
-  before_save :add_abilities, :add_guns, :add_titles
+  before_create :add_abilities, :add_guns, :add_titles
 
   belongs_to :user
 
   has_and_belongs_to_many :titles  
   has_and_belongs_to_many :abilities
   has_and_belongs_to_many :guns
+
+  validates :name, :hp, :sprite, :presence => true
+  validates :name, :uniqueness => true
+  validates :hp, :speed, :numericality => { :greater_than => 0 }
 
   def add_abilities
     #selects the abilities our character will have
@@ -70,7 +74,7 @@ class Character < ActiveRecord::Base
     a = [1, 2, 2, 2].sample #generates a weighted selection for the number of guns the character will have
     if a == 1
       self.hp += 2
-      self.speed += 50
+      self.speed = self.speed + 50
     end
     gunnage = @guns.sample(a)
     gunnage.uniq.each { |el| self.guns << el }
@@ -86,9 +90,5 @@ class Character < ActiveRecord::Base
     @titles = Title.all
     self.titles << @titles.sample
   end
-
-  validates :name, :presence => true
-  validates :name, :uniqueness => true
-  validates :hp, :presence => true
 
 end

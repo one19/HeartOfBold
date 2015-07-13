@@ -24,10 +24,11 @@
 #
 
 class Gun < ActiveRecord::Base
-  before_save :add_projectile
+  before_create :add_projectile
 
-  validates :name, :presence => true
+  validates :name, :functions, :sprite, :presence => true
   validates :name, :uniqueness => true
+  validates :damage, :proj_number, :numericality => { :greater_than => 0 }
 
   has_and_belongs_to_many :characters
   # has_many :character_guns

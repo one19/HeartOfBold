@@ -14,6 +14,6 @@
 class Biome < ActiveRecord::Base
   has_many :rooms
 
-  validates :name, :presence => true
+  validates :name, :map_mat, :presence => true
   validates :name, :uniqueness => true
 end

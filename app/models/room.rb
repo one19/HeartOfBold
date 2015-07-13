@@ -14,4 +14,6 @@
 
 class Room < ActiveRecord::Base
   belongs_to :biome
+
+  validates :sprite, :presence => true
 end

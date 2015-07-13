@@ -50,8 +50,6 @@ RSpec.describe "characters/show", type: :view do
     expect(rendered).to match(/1.5/)
     expect(rendered).to match(/1.5/)
     expect(rendered).to match(/1.5/)
-    expect(rendered).to match(/1.5/)
-    expect(rendered).to match(/1.5/)
     expect(rendered).to match(/1/)
     expect(rendered).to match(/Move Type/)
     expect(rendered).to match(/Element/)
@@ -66,9 +64,5 @@ RSpec.describe "characters/show", type: :view do
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/2/)
-    expect(rendered).to match(/3/)
-    expect(rendered).to match(/4/)
-    expect(rendered).to match(/5/)
-    expect(rendered).to match(/6/)
   end
 end

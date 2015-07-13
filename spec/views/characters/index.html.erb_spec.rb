@@ -22,6 +22,7 @@ RSpec.describe "characters/index", type: :view do
         :hp_regen => 1.55,
         :power => 1.5,
         :power_regen => 1.555,
+        :speed => 250,
         :size => 1,
         :move_type => "float",
         :element => "Element",
@@ -44,6 +45,7 @@ RSpec.describe "characters/index", type: :view do
         :hp_regen => 1.55,
         :power => 1.5,
         :power_regen => 1.555,
+        :speed => 250,
         :size => 1,
         :move_type => "float",
         :element => "Element",
@@ -66,11 +68,8 @@ RSpec.describe "characters/index", type: :view do
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 1
     assert_select "tr>td", :text => "Name 2".to_s, :count => 1
-    assert_select "tr>td", :text => 100.to_s, :count => 2
     assert_select "tr>td", :presence => true
     assert_select "tr>td", :text => 1.55.to_s, :count => 2
-    assert_select "tr>td", :text => 1.5.to_s, :count => 2
-    assert_select "tr>td", :text => 1.555.to_s, :count => 2
     assert_select "tr>td", :text => 1.to_s, :count => 2
     assert_select "tr>td", :text => "float".to_s, :count => 2
     assert_select "tr>td", :text => "Element".to_s, :count => 2
@@ -84,6 +83,5 @@ RSpec.describe "characters/index", type: :view do
     assert_select "tr>td", :text => "jacket".to_s, :count => 2
     assert_select "tr>td", :text => "shoes".to_s, :count => 2
     assert_select "tr>td", :text => "scarf".to_s, :count => 2
-    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

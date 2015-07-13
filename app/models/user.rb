@@ -25,7 +25,7 @@
 #
 
 class User < ActiveRecord::Base
-  before_save :add_character
+  before_create :add_character
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -28,7 +28,7 @@ RSpec.describe TitlesController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { 'name' => nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,14 @@ RSpec.describe TitlesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { :name => 'ButtLord'}
       }
 
       it "updates the requested title" do
         title = Title.create! valid_attributes
         put :update, {:id => title.to_param, :title => new_attributes}, valid_session
         title.reload
-        skip("Add assertions for updated state")
+        expect(title.name).to eq 'ButtLord'
       end
 
       it "assigns the requested title as @title" do

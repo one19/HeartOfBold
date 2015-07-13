@@ -44,7 +44,7 @@ RSpec.describe CharactersController, type: :controller do
     { 'name' => nil }
     #{ 'prime_gun_id' => nil }
     { 'hp' => nil }
-    #{ 'sprite' => nil }
+    { 'sprite' => nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -119,14 +119,14 @@ RSpec.describe CharactersController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { :name => "Nameless"}
       }
 
       it "updates the requested character" do
         character = Character.create! valid_attributes
         put :update, {:id => character.to_param, :character => new_attributes}, valid_session
         character.reload
-        skip("Add assertions for updated state")
+        expect(character.name).to eq 'Nameless'
       end
 
       it "assigns the requested character as @character" do

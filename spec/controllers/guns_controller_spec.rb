@@ -33,7 +33,9 @@ RSpec.describe GunsController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { 'name' => nil }
+    { 'clip_size' => 0 }
+    { 'proj_number' => 0 }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -108,14 +110,14 @@ RSpec.describe GunsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { :name => "Nameless" }
       }
 
       it "updates the requested gun" do
         gun = Gun.create! valid_attributes
         put :update, {:id => gun.to_param, :gun => new_attributes}, valid_session
         gun.reload
-        skip("Add assertions for updated state")
+        expect(gun.name).to eq 'Nameless'
       end
 
       it "assigns the requested gun as @gun" do

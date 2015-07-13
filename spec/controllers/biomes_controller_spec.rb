@@ -28,7 +28,8 @@ RSpec.describe BiomesController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { 'name' => nil }
+    { 'map_mat' => nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +104,14 @@ RSpec.describe BiomesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { :name => 'Icy Craphole of Doom' }
       }
 
       it "updates the requested biome" do
         biome = Biome.create! valid_attributes
         put :update, {:id => biome.to_param, :biome => new_attributes}, valid_session
         biome.reload
-        skip("Add assertions for updated state")
+        expect(biome.name).to eq 'Icy Craphole of Doom'
       end
 
       it "assigns the requested biome as @biome" do
