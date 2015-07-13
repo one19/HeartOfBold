@@ -25,10 +25,10 @@
 #
 
 FactoryGirl.define do
-  factory :user do
-    email { Faker::Internet.email }
-    password "password"
-    password_confirmation "password"
+  factory :user do |f|
+    f.sequence(:email) { |n| Faker::Internet.email }
+    password "password9"
+    password_confirmation "password9"
     last_sign_in_ip { Faker::Internet.ip_v4_address }
     current_sign_in_ip { Faker::Internet.ip_v4_address }
     name { Faker::Name.name }
@@ -40,4 +40,11 @@ FactoryGirl.define do
     title { Faker::Lorem.word }
   end
 
+  # #user virtual password fix
+  #   after(:build) do |user|
+  #     user.password = "password"
+  #     user.password_confirmation = "password"
+  #   end
+
 end
+

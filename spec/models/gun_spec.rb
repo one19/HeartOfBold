@@ -36,7 +36,7 @@ RSpec.describe Gun, type: :model do
       @gun = Gun.create FactoryGirl.build(:gun).attributes
     end
 
-    it "should be a valid character" do
+    it "should be a valid gun" do
       gun = Gun.find(@gun.id)
       expect(gun.name).to_not eq nil
       expect(gun.sprite).to_not eq nil

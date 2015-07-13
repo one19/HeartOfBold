@@ -14,5 +14,16 @@
 require 'rails_helper'
 
 RSpec.describe Biome, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "A Biome" do
+    before do
+      @biome = Biome.create FactoryGirl.build(:biome).attributes
+    end
+
+    it "should be a valid biome" do
+      biome = Biome.find(@biome.id)
+      expect(biome.name).to_not eq nil
+      expect(biome.map_mat).to_not eq nil
+      expect(biome.functions).to_not eq nil
+    end
+  end
 end

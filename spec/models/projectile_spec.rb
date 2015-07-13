@@ -17,5 +17,17 @@
 require 'rails_helper'
 
 RSpec.describe Projectile, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "A projectile" do
+    before do
+      @projectile = Projectile.create FactoryGirl.build(:projectile).attributes
+    end
+
+    it "should be a valid projectile" do
+      projectile = Projectile.find(@projectile.id)
+      expect(projectile.name).to_not eq nil
+      expect(projectile.sprite).to_not eq nil
+      expect(projectile.functions).to_not eq nil
+    end
+
+  end
 end

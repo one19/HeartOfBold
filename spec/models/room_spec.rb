@@ -15,5 +15,18 @@
 require 'rails_helper'
 
 RSpec.describe Room, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "A room" do
+    before do
+      @room = Room.create FactoryGirl.build(:room).attributes
+    end
+
+    it "should be a valid room" do
+      room = Room.find(@room.id)
+      expect(room.sprite).to_not eq nil
+      expect(room.functions).to_not eq nil
+      expect(room.orientation).to be > -1
+      expect(room.size).to be > 0
+    end
+
+  end
 end

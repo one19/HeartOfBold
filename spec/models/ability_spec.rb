@@ -15,7 +15,7 @@
 require 'rails_helper'
 
 RSpec.describe Ability, type: :model do
-  describe "A Character" do
+  describe "An Ability" do
     before do
       @ability = Ability.create FactoryGirl.build(:ability).attributes
     end
