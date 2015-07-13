@@ -8,7 +8,7 @@ RSpec.describe "titles/index", type: :view do
         :description => "MyText"
       ),
       Title.create!(
-        :name => "Name",
+        :name => "Name 2",
         :description => "MyText"
       )
     ])
@@ -16,7 +16,8 @@ RSpec.describe "titles/index", type: :view do
 
   it "renders a list of titles" do
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
+    assert_select "tr>td", :text => "Name".to_s, :count => 1
+    assert_select "tr>td", :text => "Name 2".to_s, :count => 1
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
   end
 end

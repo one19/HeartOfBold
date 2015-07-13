@@ -13,8 +13,8 @@
 #
 
 FactoryGirl.define do
-  factory :ability do
-    name { Faker::Name.first_name }
+  factory :ability do |f|
+    f.sequence(:name) { |n| Faker::Name.name + "#{n}" }
     description { Faker::Lorem.paragraph }
     power_mod { Faker::Number.between(100, 20) / Faker::Number.between(10, 20) }
     functions { Faker::Lorem.paragraph(19) }

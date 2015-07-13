@@ -26,6 +26,9 @@
 class Gun < ActiveRecord::Base
   before_save :add_projectile
 
+  validates :name, :presence => true
+  validates :name, :uniqueness => true
+
   has_and_belongs_to_many :characters
   # has_many :character_guns
   # has_many :characters, :through => :character_guns
@@ -42,7 +45,7 @@ class Gun < ActiveRecord::Base
       self.damage +=1
       self.clip_size = ( self.clip_size * 1.25 ).floor
     elsif a == 3
-      self.clip_size = ( self.clip_size * 0.8 ).floor
+      self.clip_size = ( self.clip_size * 0.8 ).ceil
     end
     projects = @projectiles.sample(a)
     projects.uniq.each { |el| self.projectiles << el }

@@ -42,9 +42,9 @@ RSpec.describe CharactersController, type: :controller do
 
   let(:invalid_attributes) {
     { 'name' => nil }
-    { 'prime_gun_id' => nil }
+    #{ 'prime_gun_id' => nil }
     { 'hp' => nil }
-    { 'sprite' => nil }
+    #{ 'sprite' => nil }
   }
 
   # This should return the minimal set of values that should be in the session

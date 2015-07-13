@@ -33,8 +33,8 @@
 #
 
 FactoryGirl.define do
-  factory :character do
-    name { Faker::Name.name }
+  factory :character do |f|
+    f.sequence(:name) { |n| Faker::Name.name + "#{n}" }
     exp { Faker::Number.between(1, 100000) }
     hp { Faker::Number.between(2, 10) }
     hp_regen { Faker::Number.between(100, 20) / Faker::Number.between(10, 20) }
@@ -54,11 +54,11 @@ FactoryGirl.define do
     sprite_jacket { Faker::Avatar.image(nil, "32x32") }
     sprite_shoes { Faker::Avatar.image(nil, "32x32") }
     sprite_scarf { Faker::Avatar.image(nil, "32x32") }
-    #user_id 1
-    #prime_gun_id 1
-    #secondary_gun_id 2
-    #prime_ability_id 1
-    #secondary_ability_id 2
+    # user_id 1
+    # prime_gun_id 1
+    # secondary_gun_id 2
+    # prime_ability_id 1
+    # secondary_ability_id 2
   end
 
 end

@@ -35,6 +35,9 @@ class User < ActiveRecord::Base
   has_many :guns, :through => :characters
   has_many :titles, :through => :characters
 
+  validates :email, :presence => true
+  validates :email, :uniqueness => true
+
   def add_character
     @character = Character.create FactoryGirl.build(:character).attributes
     self.characters << @character

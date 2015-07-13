@@ -41,9 +41,6 @@ class Character < ActiveRecord::Base
   has_and_belongs_to_many :abilities
   has_and_belongs_to_many :guns
 
-  validates :name, :presence => true
-  validates :name, :uniqueness => true
-
   def add_abilities
     #selects the abilities our character will have
     @abilities = Ability.all
@@ -59,9 +56,9 @@ class Character < ActiveRecord::Base
     powers = @abilities.sample(b)
     powers.uniq.each { |el| self.abilities << el }
     # binding.pry
-    if powers.count == 1
+    if powers.uniq.length == 1
       self.prime_ability_id = self.abilities.first['id']
-    elsif powers.count == 2
+    elsif powers.uniq.length == 2
       self.prime_ability_id = self.abilities.first['id']
       self.secondary_ability_id = self.abilities.last['id']
     end
@@ -78,8 +75,8 @@ class Character < ActiveRecord::Base
     gunnage = @guns.sample(a)
     gunnage.uniq.each { |el| self.guns << el }
 
-    self.prime_gun_id = self.guns.first['id'] if self.guns.first
-    if gunnage.count == 2
+    self.prime_gun_id = self.guns.first['id']
+    if gunnage.uniq.length == 2
       self.secondary_gun_id = self.guns.last['id']
     end
   end
@@ -89,4 +86,9 @@ class Character < ActiveRecord::Base
     @titles = Title.all
     self.titles << @titles.sample
   end
+
+  validates :name, :presence => true
+  validates :name, :uniqueness => true
+  validates :hp, :presence => true
+
 end

@@ -12,10 +12,10 @@
 #
 
 FactoryGirl.define do
-  factory :biome do
+  factory :biome do |f|
     map_mat { Faker::Lorem.paragraph(19) }
     description { Faker::Lorem.paragraph }
-    name { Faker::Name.first_name }
+    f.sequence(:name) { |n| Faker::Name.first_name + "#{n}" }
     functions { Faker::Lorem.paragraph(19) }
   end
 

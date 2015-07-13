@@ -2,6 +2,18 @@ require 'rails_helper'
 
 RSpec.describe "characters/edit", type: :view do
   before(:each) do
+    @bullet1 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet2 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet3 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet4 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @gun1 = Gun.create FactoryGirl.build(:gun).attributes
+    @gun2 = Gun.create FactoryGirl.build(:gun).attributes
+    @gun3 = Gun.create FactoryGirl.build(:gun).attributes
+    @ability1 = Ability.create FactoryGirl.build(:ability).attributes
+    @ability2 = Ability.create FactoryGirl.build(:ability).attributes
+    @ability3 = Ability.create FactoryGirl.build(:ability).attributes
+    @title1 = Title.create FactoryGirl.build(:title).attributes
+    @title2 = Title.create FactoryGirl.build(:title).attributes
     @character = assign(:character, Character.create!(
       :name => "MyString",
       :exp => 1.5,
@@ -23,11 +35,7 @@ RSpec.describe "characters/edit", type: :view do
       :sprite_jacket => "MyText",
       :sprite_shoes => "MyText",
       :sprite_scarf => "MyText",
-      :user_id => 1,
-      :prime_gun_id => 1,
-      :secondary_gun_id => 1,
-      :prime_ability_id => 1,
-      :secondary_ability_id => 1
+      :user_id => nil
     ))
   end
 

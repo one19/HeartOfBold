@@ -63,11 +63,12 @@ RSpec.describe Character, type: :model do
 
     it "should have 1 or 2 guns" do
       expect(@character.prime_gun_id).to_not eq nil
-      expect(@character.guns.length).to >= 1
+      expect(@character.guns.length).to be > 0
+      expect(@character.guns.length).to be < 3
     end
 
     it "should have zero to 2 powers" do
-      expect(@character.abilities.length).to <= 3
+      expect(@character.abilities.length).to be < 3
       expect(@character.abilities.length).to_not eq nil
     end
 
@@ -79,51 +80,3 @@ RSpec.describe Character, type: :model do
   end
 
 end
-
-
-# RSpec.describe Fruit, type: :model do
-#   #pending "add some examples to (or delete) #{__FILE__}"
-#   it { should belong_to :shelf }
-
-#   describe "An Apple" do
-#     before do
-#       @apple = Apple.create :name => 'Golden Delicious'
-#       # @apple = Fruit.new(:name => 'Apple')
-#     end
-
-#     it "Should not be squishy" do
-#       expect(@apple.squishy?).to be false
-#       expect(@apple.squishy?).to eq false
-#     end
-
-#     it "should remember the class via single table inheritance (STI)" do
-#       apple = Fruit.find(@apple.id)
-#       expect(apple.class).to eq Apple
-#       expect(apple).to eq @apple
-#       expect(apple.is_a?(Fruit)).to be true
-#       expect(apple.class.ancestors).to include Fruit
-#     end
-#   end
-
-#   describe "A pear" do
-#     before do
-#       @pear = Pear.create :name => 'Nazi'
-#     end
-
-#     it "Should be at least a bit squishy" do
-#       expect(@pear.squishy?).to be true
-#       expect(@pear.squishy?).to eq true
-#     end
-
-#     it "should remember the class via single table inheritance (STI)" do
-#       pear = Fruit.find(@pear.id)
-#       expect(pear.class).to eq Pear
-#       expect(pear).to eq @pear
-#       expect(pear.is_a?(Fruit)).to be true
-#       expect(pear.class.ancestors).to include Fruit
-#     end
-
-#   end
-
-# end
-
