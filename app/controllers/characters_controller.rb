@@ -26,33 +26,6 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
 
-    #selects the guns our character will have
-    @guns = Gun.all
-    a = [1, 2, 2].sample #generates a weighted selection for the number of guns the character will have
-    if a == 1
-      @character.hp += 2
-      @character.speed += 50
-    end
-    gunnage = @projectiles.sample(a)
-    gunnage.uniq!.each { |el| @character << el }
-
-    #selects the abilities our character will have
-    @abilities = Ability.all
-    b = [2, 2, 2, 2, 2, 2, 2, 1, 1, 0].sample #generates a weighted selection for the number of powers the character will have
-    if b == 0
-      @character.hp += 3
-      @character.power = 0
-    elsif b == 1
-      @character.hp += 1
-      @character.power += 1
-      @character.power_regen += 1
-    powers = @projectiles.sample(a)
-    powers.uniq!.each { |el| @character << el }
-
-    #selects the title the character will have
-    @titles = Title.all
-    @character << @titles.sample
-
     respond_to do |format|
       if @character.save
         format.html { redirect_to @character, notice: 'Character was successfully created.' }

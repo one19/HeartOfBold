@@ -19,12 +19,17 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe GunsController, type: :controller do
-
+  before(:each) do 
+    @bullet1 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet2 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet3 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet4 = Projectile.create FactoryGirl.build(:projectile).attributes
+  end
   # This should return the minimal set of attributes required to create a valid
   # Gun. As you add validations to Gun, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.build(:gun).attributes
   }
 
   let(:invalid_attributes) {

@@ -5,7 +5,7 @@ RSpec.describe "guns/show", type: :view do
     @gun = assign(:gun, Gun.create!(
       :name => "Name",
       :description => "MyText",
-      :length => 1,
+      :size => 1,
       :damage => 1.5,
       :fire_rate => 1.5,
       :clip_size => 2,

@@ -24,7 +24,7 @@ RSpec.describe ProjectilesController, type: :controller do
   # Projectile. As you add validations to Projectile, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.build(:projectile).attributes
   }
 
   let(:invalid_attributes) {

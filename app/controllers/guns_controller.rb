@@ -26,18 +26,6 @@ class GunsController < ApplicationController
   def create
     @gun = Gun.new(gun_params)
 
-    #code for adding projectiles to our new gun
-    @projectiles = Projectile.all
-    a = [1, 1, 1, 1, 1, 1, 1, 2, 2, 3].sample #generates a weighted selection for the number of projectile types the weapon can have bound to it
-    if a == 1
-      @gun.damage +=1
-      @gun.clip_size = ( @gun.clip_size * 1.25 ).floor
-    elsif a == 3
-      @gun.clip_size = ( @gun.clip_size * 0.8 ).floor
-    end
-    projects = @projectiles.sample(a)
-    projects.uniq!.each { |el| @gun << el }
-
     respond_to do |format|
       if @gun.save
         format.html { redirect_to @gun, notice: 'Gun was successfully created.' }
@@ -81,6 +69,6 @@ class GunsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gun_params
-      params.require(:gun).permit(:name, :description, :length, :damage, :fire_rate, :clip_size, :reload_time, :proj_size, :proj_speed, :proj_distance, :proj_number, :proj_spread, :functions, :sprite, :sprite_firing, :sprite_reload)
+      params.require(:gun).permit(:name, :description, :size, :damage, :fire_rate, :clip_size, :reload_time, :proj_size, :proj_speed, :proj_distance, :proj_number, :proj_spread, :functions, :sprite, :sprite_firing, :sprite_reload)
     end
 end

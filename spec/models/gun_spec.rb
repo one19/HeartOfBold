@@ -5,7 +5,7 @@
 #  id            :integer          not null, primary key
 #  name          :string
 #  description   :text
-#  length        :integer
+#  size          :integer
 #  damage        :float
 #  fire_rate     :float
 #  clip_size     :integer

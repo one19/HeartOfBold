@@ -15,6 +15,7 @@
 #
 
 class Projectile < ActiveRecord::Base
-  has_many :gun_projectiles
-  has_many :gun_projectiles, :through => :gun_projectiles
+  has_and_belongs_to_many :guns
+  # has_many :gun_projectiles
+  # has_many :gun_projectiles, :through => :gun_projectiles
 end

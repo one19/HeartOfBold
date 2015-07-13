@@ -6,7 +6,6 @@ RSpec.describe "abilities/new", type: :view do
       :name => "MyString",
       :description => "MyText",
       :power_mod => 1.5,
-      :context => "MyText",
       :functions => "MyText",
       :sprite => "MyString"
     ))
@@ -22,8 +21,6 @@ RSpec.describe "abilities/new", type: :view do
       assert_select "textarea#ability_description[name=?]", "ability[description]"
 
       assert_select "input#ability_power_mod[name=?]", "ability[power_mod]"
-
-      assert_select "textarea#ability_context[name=?]", "ability[context]"
 
       assert_select "textarea#ability_functions[name=?]", "ability[functions]"
 

@@ -7,7 +7,6 @@ RSpec.describe "abilities/index", type: :view do
         :name => "Name",
         :description => "MyText",
         :power_mod => 1.5,
-        :context => "MyText",
         :functions => "MyText",
         :sprite => "Sprite"
       ),
@@ -15,7 +14,6 @@ RSpec.describe "abilities/index", type: :view do
         :name => "Name",
         :description => "MyText",
         :power_mod => 1.5,
-        :context => "MyText",
         :functions => "MyText",
         :sprite => "Sprite"
       )
@@ -27,7 +25,6 @@ RSpec.describe "abilities/index", type: :view do
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => 1.5.to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "Sprite".to_s, :count => 2
   end

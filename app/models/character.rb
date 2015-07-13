@@ -33,14 +33,57 @@
 #
 
 class Character < ActiveRecord::Base
+  before_save :add_abilities, :add_guns, :add_titles
+
   belongs_to :user
-  
-  has_many :ability_characters
-  has_many :abilities, :through => :ability_characters
 
-  has_many :character_guns
-  has_many :guns, :through => :character_guns
+  has_and_belongs_to_many :titles  
+  has_and_belongs_to_many :abilities
+  has_and_belongs_to_many :guns
 
-  has_many :character_titles
-  has_many :titles, :through => :character_titles
+  def add_abilities
+    #selects the abilities our character will have
+    @abilities = Ability.all
+    b = [2, 2, 2, 2, 2, 2, 2, 1, 1, 0].sample #generates a weighted selection for the number of powers the character will have
+    if b == 0
+      self.hp += 3
+      self.power = 0
+    elsif b == 1
+      self.hp += 1
+      self.power += 1
+      self.power_regen += 1
+    end
+    powers = @abilities.sample(b)
+    powers.uniq.each { |el| self.abilities << el }
+    # binding.pry
+    if powers.count == 1
+      self.prime_ability_id = self.abilities.first['id']
+    elsif powers.count == 2
+      self.prime_ability_id = self.abilities.first['id']
+      self.secondary_ability_id = self.abilities.last['id']
+    end
+  end
+
+  def add_guns
+    #selects the guns our character will have
+    @guns = Gun.all
+    a = [1, 2, 2, 2].sample #generates a weighted selection for the number of guns the character will have
+    if a == 1
+      self.hp += 2
+      self.speed += 50
+    end
+    gunnage = @guns.sample(a)
+    gunnage.uniq.each { |el| self.guns << el }
+
+    self.prime_gun_id = self.guns.first['id'] if self.guns.first
+    if gunnage.count == 2
+      self.secondary_gun_id = self.guns.last['id']
+    end
+  end
+
+  def add_titles
+    #selects the title the character will have
+    @titles = Title.all
+    self.titles << @titles.sample
+  end
 end

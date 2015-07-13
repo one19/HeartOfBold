@@ -5,7 +5,7 @@
 #  id            :integer          not null, primary key
 #  name          :string
 #  description   :text
-#  length        :integer
+#  size          :integer
 #  damage        :float
 #  fire_rate     :float
 #  clip_size     :integer
@@ -27,7 +27,7 @@ FactoryGirl.define do
   factory :gun do
     name { Faker::Name.first_name }
     description { Faker::Lorem.paragraph }
-    length { Faker::Number.between(1, 16) }
+    size { Faker::Number.between(1, 16) }
     damage { Faker::Number.between(20, 100) / Faker::Number.between(20, 16) }
     fire_rate { Faker::Number.between(20, 100) / Faker::Number.between(20, 16) }
     clip_size { Faker::Number.between(1, 36) }

@@ -19,16 +19,32 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe CharactersController, type: :controller do
-
+  before(:each) do 
+    @bullet1 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet2 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet3 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet4 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @gun1 = Gun.create FactoryGirl.build(:gun).attributes
+    @gun2 = Gun.create FactoryGirl.build(:gun).attributes
+    @gun3 = Gun.create FactoryGirl.build(:gun).attributes
+    @ability1 = Ability.create FactoryGirl.build(:ability).attributes
+    @ability2 = Ability.create FactoryGirl.build(:ability).attributes
+    @ability3 = Ability.create FactoryGirl.build(:ability).attributes
+    @title1 = Title.create FactoryGirl.build(:title).attributes
+    @title2 = Title.create FactoryGirl.build(:title).attributes
+  end
   # This should return the minimal set of attributes required to create a valid
   # Character. As you add validations to Character, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.build(:character).attributes
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { 'name' => nil }
+    { 'prime_gun_id' => nil }
+    { 'hp' => nil }
+    { 'sprite' => nil }
   }
 
   # This should return the minimal set of values that should be in the session

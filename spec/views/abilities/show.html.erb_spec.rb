@@ -6,7 +6,6 @@ RSpec.describe "abilities/show", type: :view do
       :name => "Name",
       :description => "MyText",
       :power_mod => 1.5,
-      :context => "MyText",
       :functions => "MyText",
       :sprite => "Sprite"
     ))
@@ -17,7 +16,6 @@ RSpec.describe "abilities/show", type: :view do
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/1.5/)
-    expect(rendered).to match(/MyText/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/Sprite/)
   end

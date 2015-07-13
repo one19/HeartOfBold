@@ -2,10 +2,14 @@ require 'rails_helper'
 
 RSpec.describe "guns/new", type: :view do
   before(:each) do
+    @bullet1 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet2 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet3 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet4 = Projectile.create FactoryGirl.build(:projectile).attributes
     assign(:gun, Gun.new(
       :name => "MyString",
       :description => "MyText",
-      :length => 1,
+      :size => 1,
       :damage => 1.5,
       :fire_rate => 1.5,
       :clip_size => 1,
@@ -31,7 +35,7 @@ RSpec.describe "guns/new", type: :view do
 
       assert_select "textarea#gun_description[name=?]", "gun[description]"
 
-      assert_select "input#gun_length[name=?]", "gun[length]"
+      assert_select "input#gun_size[name=?]", "gun[size]"
 
       assert_select "input#gun_damage[name=?]", "gun[damage]"
 

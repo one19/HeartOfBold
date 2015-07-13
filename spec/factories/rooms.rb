@@ -17,7 +17,7 @@ FactoryGirl.define do
     orientation { Faker::Number.between(1, 4) }
     size 1
     functions { Faker::Lorem.paragraph(19) }
-    sprite sprite_firing { Faker::Avatar.image(nil, "800x600") }
+    sprite { Faker::Avatar.image(nil, "800x600") }
     #biome_id 1
   end
 

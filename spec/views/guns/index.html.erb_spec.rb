@@ -6,7 +6,7 @@ RSpec.describe "guns/index", type: :view do
       Gun.create!(
         :name => "Name",
         :description => "MyText",
-        :length => 1,
+        :size => 1,
         :damage => 1.5,
         :fire_rate => 1.5,
         :clip_size => 2,
@@ -24,7 +24,7 @@ RSpec.describe "guns/index", type: :view do
       Gun.create!(
         :name => "Name",
         :description => "MyText",
-        :length => 1,
+        :size => 1,
         :damage => 1.5,
         :fire_rate => 1.5,
         :clip_size => 2,

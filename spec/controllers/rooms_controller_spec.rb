@@ -24,7 +24,7 @@ RSpec.describe RoomsController, type: :controller do
   # Room. As you add validations to Room, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.build(:room).attributes
   }
 
   let(:invalid_attributes) {

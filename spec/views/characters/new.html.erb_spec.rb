@@ -2,6 +2,18 @@ require 'rails_helper'
 
 RSpec.describe "characters/new", type: :view do
   before(:each) do
+    @bullet1 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet2 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet3 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @bullet4 = Projectile.create FactoryGirl.build(:projectile).attributes
+    @gun1 = Gun.create FactoryGirl.build(:gun).attributes
+    @gun2 = Gun.create FactoryGirl.build(:gun).attributes
+    @gun3 = Gun.create FactoryGirl.build(:gun).attributes
+    @ability1 = Ability.create FactoryGirl.build(:ability).attributes
+    @ability2 = Ability.create FactoryGirl.build(:ability).attributes
+    @ability3 = Ability.create FactoryGirl.build(:ability).attributes
+    @title1 = Title.create FactoryGirl.build(:title).attributes
+    @title2 = Title.create FactoryGirl.build(:title).attributes
     assign(:character, Character.new(
       :name => "MyString",
       :exp => 1.5,

@@ -24,7 +24,7 @@ RSpec.describe BiomesController, type: :controller do
   # Biome. As you add validations to Biome, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.build(:biome).attributes
   }
 
   let(:invalid_attributes) {

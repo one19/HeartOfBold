@@ -24,7 +24,7 @@ RSpec.describe AbilitiesController, type: :controller do
   # Ability. As you add validations to Ability, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.build(:ability).attributes
   }
 
   let(:invalid_attributes) {

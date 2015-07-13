@@ -37,30 +37,43 @@ require 'rails_helper'
 RSpec.describe Character, type: :model do
   #pending "add some examples to (or delete) #{__FILE__}"
 
-  it {should belong_to :user}
-  it {should have_many :guns}
-  it {should have_many :abilities}
-
   describe "A Character" do
     before do
-      @user = User.create :name => "Butt Hook"
-      @gun1 = Gun.create :name => "shotgun"
-      @gun2 = Gun.create :name => "pistol"
-      @ability1 = Ability.create :name => "jump"
-      @ability2 = Ability.create :name => "slice"
-      @character = Character.create :name => 'Butters'
+      @bullet1 = Projectile.create FactoryGirl.build(:projectile).attributes
+      @bullet2 = Projectile.create FactoryGirl.build(:projectile).attributes
+      @bullet3 = Projectile.create FactoryGirl.build(:projectile).attributes
+      @bullet4 = Projectile.create FactoryGirl.build(:projectile).attributes
+      @gun1 = Gun.create FactoryGirl.build(:gun).attributes
+      @gun2 = Gun.create FactoryGirl.build(:gun).attributes
+      @gun3 = Gun.create FactoryGirl.build(:gun).attributes
+      @ability1 = Ability.create FactoryGirl.build(:ability).attributes
+      @ability2 = Ability.create FactoryGirl.build(:ability).attributes
+      @ability3 = Ability.create FactoryGirl.build(:ability).attributes
+      @title1 = Title.create FactoryGirl.build(:title).attributes
+      @title2 = Title.create FactoryGirl.build(:title).attributes
+      @character = Character.create FactoryGirl.build(:character).attributes
     end
 
-    it "should have some stats" do
+    it "should be a valid character" do
+      character = Character.find(@character.id)
+      expect(character.hp).to be > 0
+      expect(character.name).to_not eq nil
+      expect(character.sprite).to_not eq nil
     end
 
-    it "should have sprites" do
+    it "should have 1 or 2 guns" do
+      expect(@character.prime_gun_id).to_not eq nil
+      expect(@character.guns.length).to >= 1
     end
 
-    it "should be assigned at least one gun" do
+    it "should have zero to 2 powers" do
+      expect(@character.abilities.length).to <= 3
+      expect(@character.abilities.length).to_not eq nil
     end
 
-    it "should have correct ability assignment" do
+    it "should have a title" do
+      character = Character.find(@character.id)
+      expect(character.titles.length).to eq 1
     end
 
   end

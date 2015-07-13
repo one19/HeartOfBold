@@ -25,6 +25,7 @@
 #
 
 class User < ActiveRecord::Base
+  before_save :add_character
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -33,4 +34,9 @@ class User < ActiveRecord::Base
   has_many :abilities, :through => :characters
   has_many :guns, :through => :characters
   has_many :titles, :through => :characters
+
+  def add_character
+    @character = Character.create FactoryGirl.build(:character).attributes
+    self.characters << @character
+  end
 end
