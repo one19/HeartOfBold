@@ -16,4 +16,6 @@ class Ability < ActiveRecord::Base
   has_and_belongs_to_many :characters
   # has_many :ability_characters
   # has_many :characters, :through => :ability_characters
+  validates :name, :presence => true
+  validates :name, :uniqueness => true
 end

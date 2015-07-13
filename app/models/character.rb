@@ -41,6 +41,9 @@ class Character < ActiveRecord::Base
   has_and_belongs_to_many :abilities
   has_and_belongs_to_many :guns
 
+  validates :name, :presence => true
+  validates :name, :uniqueness => true
+
   def add_abilities
     #selects the abilities our character will have
     @abilities = Ability.all
