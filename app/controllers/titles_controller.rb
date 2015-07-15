@@ -7,6 +7,12 @@ class TitlesController < ApplicationController
     @titles = Title.all
   end
 
+  def ids
+    titles = Title.all
+    @ids = []
+    titles.each { |el| @ids.push el.id }
+  end
+
   # GET /titles/1
   # GET /titles/1.json
   def show

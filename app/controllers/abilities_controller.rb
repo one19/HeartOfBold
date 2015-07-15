@@ -7,6 +7,12 @@ class AbilitiesController < ApplicationController
     @abilities = Ability.all
   end
 
+  def ids
+    abilities = Ability.all
+    @ids = []
+    abilities.each { |el| @ids.push el.id }
+  end
+
   # GET /abilities/1
   # GET /abilities/1.json
   def show

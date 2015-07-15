@@ -7,6 +7,12 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
+  def ids
+    rooms = Room.all
+    @ids = []
+    rooms.each { |el| @ids.push el.id }
+  end
+
   # GET /rooms/1
   # GET /rooms/1.json
   def show

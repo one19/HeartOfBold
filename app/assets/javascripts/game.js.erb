@@ -1,0 +1,380 @@
+BasicGame.Game = function (game) {};
+
+BasicGame.Game.prototype = {
+
+  create: function () {
+    //SETUP/////////////
+    //  We're going to be using physics, so enable the Arcade Physics system
+    this.physics.startSystem(Phaser.Physics.ARCADE);
+    //  A simple background for our this
+    this.add.sprite(0, 0, 'sky');
+    this.world.setBounds(0, 0, 1920, 1200);
+
+    //PLATFORMS/////////
+    //  The platforms group contains the ground and the 2 ledges we can jump on
+    platforms = this.add.group();
+    //  We will enable physics for any object that is created in this group
+    platforms.enableBody = true;
+    // Here we create the ground.
+    var ground = platforms.create(0, this.world.height - 64, 'ground');
+    ground.body.collideWorldBounds = true;
+    //  Scale it to fit the width of the this (the original sprite is 400x32 in size)
+    ground.scale.setTo(2, 2);
+    //  This stops it from falling away when you jump on it
+    ground.body.immovable = false;
+    //  Now let's create two ledges
+    var ledge = platforms.create(400, 400, 'ground');
+    ledge.body.immovable = true;
+    ledge = platforms.create(-150, 250, 'ground');
+    ledge.body.immovable = false;
+
+    //PLAYER/////////////
+    // The player and its settings
+    player = this.add.sprite(32, this.world.height - 150, 'dude');
+    //  We need to enable physics on the player
+    this.physics.arcade.enable(player);
+    //  Player physics properties. Give the little guy a slight bounce.
+    player.body.collideWorldBounds = true;
+    //  Our two animations, walking left and right.
+    player.animations.add('left', [0, 1, 2, 3], 10, true);
+    player.animations.add('right', [5, 6, 7, 8], 10, true);
+    player.anchor.set(0.5);
+    this.camera.follow(player);
+
+    //POINTER////////////
+    target = this.add.sprite(400, 300, 'baddie');
+    target.alpha = 0;
+    //debugger;
+    BasicGame.game.canvas.addEventListener('mousedown', this.requestLock);
+    BasicGame.game.input.addMoveCallback(this.moveAim, BasicGame.game);
+
+    //STARS//////////////
+    //  Finally some stars to collect
+    stars = this.add.group();
+    //  We will enable physics for any star that is created in this group
+    stars.enableBody = true;
+    //  Here we'll create 12 of them evenly spaced apart
+    for (var i = 0; i < 12; i++) {
+      //  Create a star inside of the 'stars' group
+      var star = stars.create(i * 70, 0, 'star');
+      //  Let gravity do its thing
+      star.body.gravity.y = 300;
+      //  This just gives each star a slightly random bounce value
+      star.body.bounce.y = 0.7 + Math.random() * 0.2;
+    }
+
+    //BULLETS/////////////
+    bullets = this.add.group();
+    bullets.enableBody = true;
+    bullets.physicsBodyType = Phaser.Physics.ARCADE;
+    bullets.createMultiple(50, 'baddie');
+    bullets.setAll('checkWorldBounds', true);
+    bullets.setAll('outOfBoundsKill', true);
+
+
+    //  The score
+    BasicGame.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+    BasicGame.scoreText.fixedToCamera = true;
+
+    //CONTROL CREATION/////////////
+    this.cursors = this.input.keyboard.createCursorKeys();
+    //this.input.keyboard.addKeyCapture(27)
+    // this.input.keyboard.onDownCallback = function(e) {
+    //   //console.log(e.keyCode)
+    //   debugger;
+    //   if (e.keyCode === 27) {
+    //     this.releaseLock();
+    //   }
+    // }
+
+    //console.log( 'biome ids: ' + game.cache.getJSON('biomeIDs') );
+
+    //console.log('x: ' + game.input.activePointer.x + ', y: ' + game.input.activePointer.y)
+      
+  },
+
+  update: function () {
+
+    this.collisionDetection();
+
+    //ANIMATION AND ROTATIONS////////////////
+    if (BasicGame.isCaptured === 1) {
+      player.rotation = this.physics.arcade.angleBetween(player, target);
+      this.cursorCameraDrag(player.body.x, player.body.y);
+    } 
+    //player.rotation = this.physics.arcade.angleToPointer(player);
+    //console.log(this.floatyOrStatic)
+    if (BasicGame.floatyOrStatic === 'float' ) {
+      this.floatMovement()
+    } else {
+      this.staticMovement();
+    }
+
+    this.cursorKeyFire();
+    bullets.forEachAlive(this.bulletRange, this);
+    // compare variable lastX
+
+    // lastX = currentX
+    // target.x += this.camera.x
+    // console.log( "target x: " + target.x + ", target y: " + target.y);
+    this.render();
+      
+  },
+
+  render: function () {
+    //this.debug.cameraInfo(this.camera, 500, 32);
+    //this.debug.spriteCoords(player, 32, 32);
+    //game.debug.inputInfo(32, 32);
+    //game.debug.pointer( game.input.activePointer );
+  },
+
+  collectStar: function ( player, star ) {
+    // Removes the star from the screen
+    star.kill();
+    //  Add and update the score
+
+    BasicGame.score += 10;
+    BasicGame.scoreText.text = 'Score: ' + BasicGame.score;
+  },
+
+  bulletImpact: function ( platforms, bullet ) {
+    // Removes the bullet from the screen
+    bullet.kill();
+    //  Add and update the score
+    BasicGame.score += 1;
+    BasicGame.scoreText.text = 'Score: ' + BasicGame.score;
+  },
+
+  requestLock: function () {
+    if (BasicGame.isCaptured !== 1) {
+      this.requestPointerLock();
+      target.x = BasicGame.game.input.x + BasicGame.game.camera.x
+      target.y = BasicGame.game.input.y + BasicGame.game.camera.y
+      BasicGame.bulletV = 500;
+    }
+    BasicGame.moveSpeed = BasicGame.aimSpeed;
+    BasicGame.moveDiag = Math.pow( ((BasicGame.moveSpeed * BasicGame.moveSpeed) / 2), 0.5 );
+    target.alpha = 1;
+    BasicGame.isCaptured = 1;
+  },
+
+  releaseLock: function () {
+    //console.log('shut the hell up')
+    if (BasicGame.isCaptured === 1) {
+      this.input.mouse.releasePointerLock();
+      BasicGame.moveSpeed = BasicGame.maxSpeed;
+      BasicGame.moveDiag = Math.pow( ((BasicGame.moveSpeed * BasicGame.moveSpeed) / 2), 0.5 );
+      BasicGame.bulletV = 300;
+      target.alpha = 0;
+      BasicGame.isCaptured = 0;
+    }
+  },
+
+  moveAim: function (pointer, x, y) {
+    //debugger
+    if (BasicGame.isCaptured === 1) {
+      target.x += BasicGame.game.input.mouse.event.webkitMovementX;
+      target.y += BasicGame.game.input.mouse.event.webkitMovementY;
+    }
+  },
+
+  fire: function (angle, playx, playy) {
+    if (this.time.now > BasicGame.nextFire && bullets.countDead() > 0) {
+      BasicGame.nextFire = this.time.now + BasicGame.fireRate;
+
+      var bullet = bullets.getFirstDead();
+      bullet.anchor.set(0.5);
+
+      if (BasicGame.akimbo === 1) {
+        if (BasicGame.lastAkimbo === 1) {
+          BasicGame.lastAkimbo = -1;
+        } else {
+          BasicGame.lastAkimbo = 1;
+        }
+      }
+      bullet.reset(player.x + BasicGame.bodyWidth, player.y - ( BasicGame.shoulderWidth * BasicGame.rightyOrWeird * BasicGame.lastAkimbo) );
+      bullet.body.velocity.x = ( BasicGame.bulletV * Math.sin(angle) ) + ( playx / 2 )
+      bullet.body.velocity.y = ( BasicGame.bulletV * Math.cos(angle) ) + ( playy / 2 )
+      //bullet.firedFrom = [player.x, player.y];
+      //this.physics.arcade.moveToObject(bullet, target, 300);
+    }
+  },
+
+  staticMovement: function () {
+    //VELOCITY AND CONTROLS///////////
+    //  Reset the players velocity (movement) to zero on key-release
+    player.body.velocity.x = 0;
+    player.body.velocity.y = 0;
+    // we have to define the primitives last, or they'll capture the diagonal movements
+    // we also can't use single-escaping clauses, or the diagonal velocity will be too high
+    if ( (this.input.keyboard.isDown(Phaser.Keyboard.S) && this.input.keyboard.isDown(Phaser.Keyboard.W)) || (this.input.keyboard.isDown(Phaser.Keyboard.A) && this.input.keyboard.isDown(Phaser.Keyboard.D)) ) { 
+      player.animations.stop();
+      player.frame = 4;
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.D) && this.input.keyboard.isDown(Phaser.Keyboard.W)) {         //moving right & up
+      player.body.velocity.x = BasicGame.moveDiag;
+      player.body.velocity.y = -BasicGame.moveDiag;
+      //player.animations.play('right');
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.D) && this.input.keyboard.isDown(Phaser.Keyboard.S)) {       //moving right & down
+      player.body.velocity.x = BasicGame.moveDiag;
+      player.body.velocity.y = BasicGame.moveDiag;
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.A) && this.input.keyboard.isDown(Phaser.Keyboard.W)) {          //moving left & up
+      player.body.velocity.x = -BasicGame.moveDiag;
+      player.body.velocity.y = -BasicGame.moveDiag;
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.A) && this.input.keyboard.isDown(Phaser.Keyboard.S)) {        //moving left & down
+      player.body.velocity.x = -BasicGame.moveDiag;
+      player.body.velocity.y = BasicGame.moveDiag;
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.A)) {                               //moving left
+      player.body.velocity.x = -BasicGame.moveSpeed;
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.D)) {                              //moving right
+      player.body.velocity.x = BasicGame.moveSpeed;
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.W)) {                                 //moving up
+      player.body.velocity.y = -BasicGame.moveSpeed;
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.S)) {                               //moving down
+      player.body.velocity.y = BasicGame.moveSpeed;
+    } else {                                                        //on stop
+      player.animations.stop();
+      player.frame = 4;
+    }
+  },
+
+  floatMovement: function() {
+    // we have to define the primitives last, or they'll capture the diagonal movements
+    // we also can't use single-escaping clauses, or the diagonal velocity will be higher than the long/lat
+    player.body.maxVelocity = BasicGame.maxSpeed / 100;
+    player.body.acceleration.x = 0;
+    player.body.acceleration.y = 0;
+    if ( (this.input.keyboard.isDown(Phaser.Keyboard.S) && this.input.keyboard.isDown(Phaser.Keyboard.W)) || (this.input.keyboard.isDown(Phaser.Keyboard.A) && this.input.keyboard.isDown(Phaser.Keyboard.D)) ) { 
+      player.animations.stop();
+      player.frame = 4;
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.D) && this.input.keyboard.isDown(Phaser.Keyboard.W)) {         //moving right & up
+      player.body.acceleration.x = BasicGame.accelDiag;
+      player.body.acceleration.y = -BasicGame.accelDiag;
+      this.capSpeed(player, 'upright')
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.D) && this.input.keyboard.isDown(Phaser.Keyboard.S)) {       //moving right & down
+      player.body.acceleration.x = BasicGame.accelDiag;
+      player.body.acceleration.y = BasicGame.accelDiag;
+      this.capSpeed(player, 'downright')
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.A) && this.input.keyboard.isDown(Phaser.Keyboard.W)) {          //moving left & up
+      player.body.acceleration.x = -BasicGame.accelDiag;
+      player.body.acceleration.y = -BasicGame.accelDiag;
+      this.capSpeed(player, 'leftup')
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.A) && this.input.keyboard.isDown(Phaser.Keyboard.S)) {        //moving left & down
+      player.body.acceleration.x = -BasicGame.accelDiag;
+      player.body.acceleration.y = BasicGame.accelDiag;
+      this.capSpeed(player, 'leftdown')
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.A)) {                               //moving left
+      player.body.acceleration.x = -BasicGame.accel;
+      this.capSpeed(player, 'left')
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.D)) {                              //moving right
+      player.body.acceleration.x = BasicGame.accel;
+      this.capSpeed(player, 'right')
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.W)) {                                 //moving up
+      player.body.acceleration.y = -BasicGame.accel;
+      this.capSpeed(player, 'up')
+      //console.log(player.body.acceleration.y + 'and the accel? : ' + BasicGame.accel)
+    } else if (this.input.keyboard.isDown(Phaser.Keyboard.S)) {                               //moving down
+      player.body.acceleration.y = BasicGame.accel;
+      this.capSpeed(player, 'down')
+    } else {                                                        //on stop
+      player.animations.stop();
+      player.frame = 4;
+    }
+  },
+
+  cursorKeyFire: function() {
+    //SECONDARY FIRING/////////////
+    if ( (this.cursors.down.isDown && this.cursors.up.isDown) || (this.cursors.left.isDown && this.cursors.right.isDown) ) {
+    //cancelling opposite keydown presses 
+    } else if (this.cursors.right.isDown && this.cursors.up.isDown) {         //shooting right & up
+      this.releaseLock()
+      player.rotation = ( 7 * Math.PI / 4 );
+      this.fire(3 * Math.PI / 4, player.body.velocity.x, player.body.velocity.y);
+    } else if (this.cursors.right.isDown && this.cursors.down.isDown) {       //shooting right & down
+      this.releaseLock()
+      player.rotation = ( Math.PI / 4 );
+      this.fire(Math.PI / 4, player.body.velocity.x, player.body.velocity.y);
+    } else if (this.cursors.left.isDown && this.cursors.up.isDown) {          //shooting left & up
+      this.releaseLock()
+      player.rotation = ( 5 * Math.PI / 4 );
+      this.fire(5 * Math.PI / 4, player.body.velocity.x, player.body.velocity.y);
+    } else if (this.cursors.left.isDown && this.cursors.down.isDown) {        //shooting left & down
+      this.releaseLock()
+      player.rotation = ( 3 * Math.PI / 4 );
+      this.fire(7 * Math.PI / 4, player.body.velocity.x, player.body.velocity.y);
+    } else if (this.cursors.left.isDown) {                               //shooting left
+      this.releaseLock()
+      player.rotation = ( Math.PI );
+      this.fire(3 * Math.PI / 2, player.body.velocity.x, player.body.velocity.y);
+    } else if (this.cursors.right.isDown) {                              //shooting right
+      this.releaseLock()
+      player.rotation = ( 0 );
+      this.fire(Math.PI / 2, player.body.velocity.x, player.body.velocity.y);
+    } else if (this.cursors.up.isDown) {                                 //shooting up
+      this.releaseLock()
+      player.rotation = ( 3 * Math.PI / 2 );
+      this.fire(Math.PI, player.body.velocity.x, player.body.velocity.y);
+      //console.log(player.body.velocity.x)
+      //console.log('the this.cursors.up key was pressed')
+    } else if (this.cursors.down.isDown) {                               //shooting down
+      this.releaseLock()
+      player.rotation = ( Math.PI / 2 );
+      this.fire(0, player.body.velocity.x, player.body.velocity.y);
+    } else if (this.input.activePointer.isDown) {
+      this.fire(-player.rotation + ( Math.PI/2 ), player.body.velocity.x, player.body.velocity.y);
+    }
+  },
+
+  collisionDetection: function () {
+    //COLLISION//////////////////////
+    //  Collide the player and the stars with the platforms
+    this.physics.arcade.collide(player, platforms);
+    this.physics.arcade.collide(stars, platforms);
+    //DESTRUCTION////////////////////
+    //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
+    this.physics.arcade.overlap(player, stars, this.collectStar, null, BasicGame.game);
+    //  Checks to see if the bullet overlaps with any of the platforms, and calles the bulletImpact function
+    this.physics.arcade.overlap(platforms, bullets, this.bulletImpact, null, BasicGame.game);
+  },
+
+  getScalar: function(x, y) {
+    var scalar = [];
+    var magnitude = Math.sqrt( (x * x) + (y * y) );
+    scalar.push( x / magnitude);
+    scalar.push( y / magnitude);
+    return scalar;
+  },
+
+  capSpeed: function (object, direction) {
+    var magnitude = Math.sqrt( Math.pow(object.body.velocity.x, 2) + Math.pow(object.body.velocity.y, 2) );
+    if ( magnitude >= BasicGame.maxSpeed ) {
+      var scalar = this.getScalar(object.body.velocity.x, object.body.velocity.y);
+      object.body.velocity.x = scalar[0] * BasicGame.moveSpeed;
+      object.body.velocity.y = scalar[1] * BasicGame.moveSpeed;
+    }
+  },
+
+  bulletRange: function(object) {
+    var x = object.body.position.x - player.body.position.x;
+    var y = object.body.position.y - player.body.position.y;
+    //console.log(object.body.position.x)
+    var r = Math.sqrt( (x * x) + (y * y) );
+    // console.log(r);
+    if (r >= BasicGame.bulletDist) {
+      this.bulletImpact(null, object);
+      // console.log('bullet reached max range and was destroyed');
+    }
+  },
+
+  cursorCameraDrag: function(xx, yy) {
+    //console.log(this.camera)
+    var xbounds = this.camera.width / 2;
+    var ybounds = this.camera.height / 2;
+    //console.log('playery: ' + ybounds + ', playerx: ' + xbounds)
+    if ( ( (xx > xbounds) && (xx < this.world.width - xbounds) ) || ( (yy > ybounds) && (yy < this.world.height - ybounds) ) ) {
+      ///console.log('player body deltax: ' + player.body.deltaX());
+      //console.log("I'm draggin' my CURSORRRRR!")
+      target.x += player.body.deltaX();
+      target.y += player.body.deltaY();
+    }
+  }
+}

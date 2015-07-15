@@ -7,6 +7,12 @@ class GunsController < ApplicationController
     @guns = Gun.all
   end
 
+  def ids
+    guns = Gun.all
+    @ids = []
+    guns.each { |el| @ids.push el.id }
+  end
+
   # GET /guns/1
   # GET /guns/1.json
   def show

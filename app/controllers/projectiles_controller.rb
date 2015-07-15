@@ -7,6 +7,12 @@ class ProjectilesController < ApplicationController
     @projectiles = Projectile.all
   end
 
+  def ids
+    projectiles = Projectile.all
+    @ids = []
+    projectiles.each { |el| @ids.push el.id }
+  end
+
   # GET /projectiles/1
   # GET /projectiles/1.json
   def show

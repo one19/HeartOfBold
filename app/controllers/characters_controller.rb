@@ -7,6 +7,12 @@ class CharactersController < ApplicationController
     @characters = Character.all
   end
 
+  def ids
+    characters = Character.all
+    @ids = []
+    characters.each { |el| @ids.push el.id }
+  end
+
   # GET /characters/1
   # GET /characters/1.json
   def show

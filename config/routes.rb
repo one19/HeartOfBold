@@ -77,12 +77,19 @@
 #
 
 Rails.application.routes.draw do
+  get "biomes/ids" => "biomes#ids"
   resources :biomes
+  get "rooms/ids" => "rooms#ids"
   resources :rooms
+  get "titles/ids" => "titles#ids"
   resources :titles
+  get "abilities/ids" => "abilities#ids"
   resources :abilities
+  get "projectiles/ids" => "projectiles#ids"
   resources :projectiles
+  get "guns/ids" => "guns#ids"
   resources :guns
+  get "characters/ids" => "characters#ids"
   resources :characters
   devise_for :users
   get "about/" => "pages#about"

@@ -7,6 +7,12 @@ class BiomesController < ApplicationController
     @biomes = Biome.all
   end
 
+  def ids
+    biomes = Biome.all
+    @ids = []
+    biomes.each { |el| @ids.push el.id }
+  end
+
   # GET /biomes/1
   # GET /biomes/1.json
   def show

@@ -15,4 +15,9 @@
 //= require underscore-min
 //= require TweenMax.min
 //= require phaser.min
+//= require boot
+//= require preloader
+//= require mainmenu
+//= require game
+//= require app
 //= require_tree .
