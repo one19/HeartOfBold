@@ -17,7 +17,7 @@ function preload() {
 }
 
 
-//PRIMITIVES///////////////////
+//GLOBAL///////////////////
 //single
 var player;
 var target;
@@ -45,6 +45,7 @@ var accel = moveSpeed * 4;
 var accelDiag = Math.pow( ((accel * accel) / 2), 0.5 );
 //Bullet Vars
 var bulletV = 300;
+var bulletDist = 200;
 //Gun Vars
 var akimbo = 1; //determines how many guns the character holds
 var lastAkimbo = 0;
@@ -124,6 +125,7 @@ function create() {
 
   //  The score
   scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+  scoreText.fixedToCamera = true;
 
   //CONTROL CREATION/////////////
   cursors = game.input.keyboard.createCursorKeys();
@@ -146,6 +148,7 @@ function update() {
   //ANIMATION AND ROTATIONS////////////////
   if (isCaptured === 1) {
     player.rotation = game.physics.arcade.angleBetween(player, target);
+    cursorCameraDrag(player.body.x, player.body.y);
   } 
   //player.rotation = game.physics.arcade.angleToPointer(player);
   
@@ -156,7 +159,12 @@ function update() {
   }
 
   cursorKeyFire();
-  
+  bullets.forEachAlive(bulletRange, this);
+  // compare variable lastX
+
+  // lastX = currentX
+  // target.x += game.camera.x
+  // console.log( "target x: " + target.x + ", target y: " + target.y);
   render();
     
 }
@@ -211,6 +219,7 @@ function releaseLock() {
 
 function moveAim(pointer, x, y) {
   if (game.input.mouse.locked) {
+
     target.x += game.input.mouse.event.webkitMovementX;
     target.y += game.input.mouse.event.webkitMovementY;
   }
@@ -233,7 +242,7 @@ function fire(angle, playx, playy) {
     bullet.reset(player.x + bodyWidth, player.y - ( shoulderWidth * rightyOrWeird * lastAkimbo) );
     bullet.body.velocity.x = ( bulletV * Math.sin(angle) ) + ( playx / 2 )
     bullet.body.velocity.y = ( bulletV * Math.cos(angle) ) + ( playy / 2 )
-    bullet.firedFrom = [player.x, player.y];
+    //bullet.firedFrom = [player.x, player.y];
     //game.physics.arcade.moveToObject(bullet, target, 300);
   }
 }
@@ -383,8 +392,32 @@ var capSpeed = function (object, direction) {
   var magnitude = Math.sqrt( Math.pow(object.body.velocity.x, 2) + Math.pow(object.body.velocity.y, 2) );
   if ( magnitude >= maxSpeed ) {
     var scalar = getScalar(object.body.velocity.x, object.body.velocity.y);
-    object.body.velocity.x = scalar[0] * maxSpeed;
-    object.body.velocity.y = scalar[1] * maxSpeed;
+    object.body.velocity.x = scalar[0] * moveSpeed;
+    object.body.velocity.y = scalar[1] * moveSpeed;
   }
 }
+
+var bulletRange = function(object) {
+  var x = object.body.position.x - player.body.position.x;
+  var y = object.body.position.y - player.body.position.y;
+  var r = Math.sqrt( (x * x) + (y * y) );
+  // console.log(r);
+  if (r >= bulletDist) {
+    bulletImpact(null, object);
+    // console.log('bullet reached max range and was destroyed');
+  }
+}
+
+var cursorCameraDrag = function(xx, yy) {
+  var xbounds = game.camera.width / 2;
+  var ybounds = game.camera.height / 2;
+  //console.log('playery: ' + ybounds + ', playerx: ' + xbounds)
+  if ( ( (xx > xbounds) && (xx < game.world.width - xbounds) ) || ( (yy > ybounds) && (yy < game.world.height - ybounds) ) ) {
+    ///console.log('player body deltax: ' + player.body.deltaX());
+    //console.log("I'm draggin' my CURSORRRRR!")
+    target.x += player.body.deltaX();
+    target.y += player.body.deltaY();
+  }
+}
+
 </script>

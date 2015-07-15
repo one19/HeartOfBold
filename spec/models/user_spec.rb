@@ -41,7 +41,10 @@ RSpec.describe User, type: :model do
       @ability3 = Ability.create FactoryGirl.build(:ability).attributes
       @title1 = Title.create FactoryGirl.build(:title).attributes
       @title2 = Title.create FactoryGirl.build(:title).attributes
-      @user = User.create FactoryGirl.build(:user).attributes
+      @user = User.new FactoryGirl.build(:user).attributes
+      @user.password = "password"
+      @user.password_confirmation = "password"
+      @user.save
     end
 
     it "should be a valid user" do
