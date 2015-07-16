@@ -15,20 +15,20 @@ Character.destroy_all
 User.destroy_all
 
 
-room1 = Room.create :orientation => 0, :size => 1, :functions => '', :sprite => 'a'
-room2 = Room.create :orientation => 0, :size => 1, :functions => '', :sprite => 'a'
-room3 = Room.create :orientation => 1, :size => 1, :functions => '', :sprite => 'a'
-room4 = Room.create :orientation => 1, :size => 1, :functions => '', :sprite => 'a'
-room5 = Room.create :orientation => 2, :size => 1, :functions => '', :sprite => 'a'
-room6 = Room.create :orientation => 3, :size => 1, :functions => '', :sprite => 'a'
-room7 = Room.create :orientation => 3, :size => 1, :functions => '', :sprite => 'a'
-room8 = Room.create :orientation => 4, :size => 1, :functions => '', :sprite => 'a'
-room9 = Room.create :orientation => 5, :size => 1, :functions => '', :sprite => 'a'
-room10 = Room.create :orientation => 5, :size => 1, :functions => '', :sprite => 'a'
-room11 = Room.create :orientation => 6, :size => 1, :functions => '', :sprite => 'a'
-room12 = Room.create :orientation => 7, :size => 1, :functions => '', :sprite => 'a'
-room13 = Room.create :orientation => 7, :size => 1, :functions => '', :sprite => 'a'
-room14 = Room.create :orientation => 8, :size => 1, :functions => '', :sprite => 'a'
+room1 = Room.create :orientation => 0, :size => 1, :functions => '', :sprite => "Dungeon_Floor_1.png"
+room2 = Room.create :orientation => 0, :size => 1, :functions => '', :sprite => "Dungeon_Floor_2.png"
+room3 = Room.create :orientation => 1, :size => 1, :functions => '', :sprite => "Dungeon_Floor_1.png"
+room4 = Room.create :orientation => 1, :size => 1, :functions => '', :sprite => "Dungeon_Floor_2.png"
+room5 = Room.create :orientation => 2, :size => 1, :functions => '', :sprite => "Dungeon_Floor_2.png"
+room6 = Room.create :orientation => 3, :size => 1, :functions => '', :sprite => "Dungeon_Floor_1.png"
+room7 = Room.create :orientation => 3, :size => 1, :functions => '', :sprite => "Dungeon_Floor_1.png"
+room8 = Room.create :orientation => 4, :size => 1, :functions => '', :sprite => "Dungeon_Floor_2.png"
+room9 = Room.create :orientation => 5, :size => 1, :functions => '', :sprite => "Dungeon_Floor_2.png"
+room10 = Room.create :orientation => 5, :size => 1, :functions => '', :sprite => "Dungeon_Floor_2.png"
+room11 = Room.create :orientation => 6, :size => 1, :functions => '', :sprite => "Dungeon_Floor_1.png"
+room12 = Room.create :orientation => 7, :size => 1, :functions => '', :sprite => "Dungeon_Floor_1.png"
+room13 = Room.create :orientation => 7, :size => 1, :functions => '', :sprite => "Dungeon_Floor_1.png"
+room14 = Room.create :orientation => 8, :size => 1, :functions => '', :sprite => "Dungeon_Floor_1.png"
 
 #biome1 = Biome.create :map_mat => '[[8,1,1,2],[7,0,0,3],[7,0,0,3],[6,5,5,4]]', :description => 'This is a standard 4x4 map.', :name => 'Ice World', :functions => ''
 #biome2 = Biome.create :map_mat => '[[8,1,2],[7,0,3],[7,0,3],[7,0,3],[6,5,4]]', :description => 'This is a smaller 3x5 corridor map.', :name => 'Ice Pick', :functions => ''
@@ -75,13 +75,13 @@ title18 = Title.create :name => 'Slug head', :description => "You're not invinci
 title19 = Title.create :name => 'Sniper', :description => "It's a good job mate"
 
 
-character1 = Character.create :name => 'Berago', :exp => 0, :hp => 10, :hp_regen => 1, :power => 5, :power_regen => 1, :speed => 200, :size => 1, :move_type => 'static', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => 'a', :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
-character2 = Character.create :name => 'Dengo', :exp => 0, :hp => 15, :hp_regen => 1.5, :power => 2, :power_regen => 1, :speed => 150, :size => 1, :move_type => 'static', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => 'a', :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
+character1 = Character.create :name => 'Berago', :exp => 0, :hp => 10, :hp_regen => 1, :power => 5, :power_regen => 1, :speed => 200, :size => 1, :move_type => 'static', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => "soldier_torso.png", :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
+character2 = Character.create :name => 'Dengo', :exp => 0, :hp => 15, :hp_regen => 1.5, :power => 2, :power_regen => 1, :speed => 150, :size => 1, :move_type => 'static', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => "soldier_torso.png", :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
 character3 = Character.create :name => 'The Will', :exp => 0, :hp => 5, :hp_regen => 3, :power => 2, :power_regen => 3, :speed => 250, :size => 1, :move_type => 'float', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => '', :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
-character4 = Character.create :name => 'Jon', :exp => 0, :hp => 15, :hp_regen => 2, :power => 3, :power_regen => 1, :speed => 200, :size => 1, :move_type => 'float', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => 'a', :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
-character5 = Character.create :name => 'Timmy', :exp => 0, :hp => 20, :hp_regen => 0, :power => 5, :power_regen => 1, :speed => 250, :size => 1.25, :move_type => 'float', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => 'a', :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
-character6 = Character.create :name => 'Jack', :exp => 0, :hp => 5, :hp_regen => 1, :power => 10, :power_regen => 1, :speed => 400, :size => 1, :move_type => 'float', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => 'a', :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
-character7 = Character.create :name => 'Ted', :exp => 0, :hp => 10, :hp_regen => 0.6, :power => 10, :power_regen => 6, :speed => 200, :size => 1, :move_type => 'static', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => 'a', :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
+character4 = Character.create :name => 'Jon', :exp => 0, :hp => 15, :hp_regen => 2, :power => 3, :power_regen => 1, :speed => 200, :size => 1, :move_type => 'float', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => "soldier_torso.png", :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
+character5 = Character.create :name => 'Timmy', :exp => 0, :hp => 20, :hp_regen => 0, :power => 5, :power_regen => 1, :speed => 250, :size => 1.25, :move_type => 'float', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => "soldier_torso.png", :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
+character6 = Character.create :name => 'Jack', :exp => 0, :hp => 5, :hp_regen => 1, :power => 10, :power_regen => 1, :speed => 400, :size => 1, :move_type => 'float', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => "soldier_torso.png", :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
+character7 = Character.create :name => 'Ted', :exp => 0, :hp => 10, :hp_regen => 0.6, :power => 10, :power_regen => 6, :speed => 200, :size => 1, :move_type => 'static', :element => 'none', :color_schema => 'none', :emblem => '', :functions => '', :sprite => "soldier_torso.png", :sprite_idle => '', :sprite_death => '', :sprite_hat => '', :sprite_jacket => '', :sprite_shoes => '', :sprite_scarf => '', :user_id => nil
 
 biome3.rooms << room1 << room2 << room3 << room4 << room5 << room6 << room7 << room8 << room9 << room10 << room11 << room12 << room13 << room14
 

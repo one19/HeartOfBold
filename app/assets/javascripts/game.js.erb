@@ -42,7 +42,7 @@ BasicGame.Game.prototype = {
     this.camera.follow(player);
 
     //POINTER////////////
-    target = this.add.sprite(400, 300, 'baddie');
+    target = this.add.sprite(400, 300, 'target');
     target.alpha = 0;
     //debugger;
     BasicGame.game.canvas.addEventListener('mousedown', this.requestLock);
@@ -67,7 +67,7 @@ BasicGame.Game.prototype = {
     bullets = this.add.group();
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
-    bullets.createMultiple(50, 'baddie');
+    bullets.createMultiple(50, 'bullet');
     bullets.setAll('checkWorldBounds', true);
     bullets.setAll('outOfBoundsKill', true);
 
@@ -375,6 +375,16 @@ BasicGame.Game.prototype = {
       //console.log("I'm draggin' my CURSORRRRR!")
       target.x += player.body.deltaX();
       target.y += player.body.deltaY();
+    }
+  },
+
+  rgbToHex: function (r, g, b) {
+    return "0x" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  },
+
+  runAtPlayer: function (object) {
+    if ( Math.sqrt(Math.pow(object.body.x - player.body.x, 2) + Math.pow(object.body.y - player.body.y, 2)) <= 800 ) {
+
     }
   }
 }

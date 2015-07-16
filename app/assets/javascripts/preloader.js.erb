@@ -22,16 +22,34 @@ BasicGame.Preloader.prototype = {
     //  This sets the preloadBar sprite as a loader sprite.
     //  What that does is automatically crop the sprite from 0 to full-width
     //  as the files below are loaded in.
+    var defaultPath = '<%= image_url("baddie.png") %>';
+    debugger;
+
     this.load.setPreloadSprite(this.preloadBar);
-    this.load.image('sky', '<%= image_url("sky.png") %>');
+    this.load.image('sky', '<%= image_url("Dungeon_Floor_1.png") %>');
     this.load.image('ground', '<%= image_url("platform.png") %>');
     this.load.image('star', '<%= image_url("star.png") %>');
-    this.load.spritesheet('dude', '<%= image_url("dude.png") %>', 32, 48);
-    this.load.spritesheet('baddie', '<%= image_url("bullet.png") %>');
+    this.load.image('bullet', '<%= image_url("bullet.png") %>');
+    this.load.image('target', '<%= image_url("target.png") %>');
+    this.load.image('zombie', '<%= image_url("zombie.png") %>');
 
     //BasicGame.biomeIDs = BasicGame.game.cache.getJSON('biomeIDs');
     //console.log(BasicGame.biomeIDs);
+    var path = "<%= assets.root %>";
+    var path2 = '<%= image_url("platform.png") %>';
     BasicGame.userChar = ( BasicGame.game.cache.getJSON('character') );
+    this.load.image('room0', defaultPath.replace( "baddie.png", BasicGame.userChar.rooms[0].sprite) );
+    this.load.image('room1', defaultPath.replace( "baddie.png", BasicGame.userChar.rooms[3].sprite) );
+    this.load.image('room2', defaultPath.replace( "baddie.png", BasicGame.userChar.rooms[4].sprite) );
+    this.load.image('room3', defaultPath.replace( "baddie.png", BasicGame.userChar.rooms[6].sprite) );
+    this.load.image('room4', defaultPath.replace( "baddie.png", BasicGame.userChar.rooms[7].sprite) );
+    this.load.image('room5', defaultPath.replace( "baddie.png", BasicGame.userChar.rooms[9].sprite) );
+    this.load.image('room6', defaultPath.replace( "baddie.png", BasicGame.userChar.rooms[10].sprite) );
+    this.load.image('room7', defaultPath.replace( "baddie.png", BasicGame.userChar.rooms[12].sprite) );
+    this.load.image('room8', defaultPath.replace( "baddie.png", BasicGame.userChar.rooms[13].sprite) );
+    this.load.image('dude', defaultPath.replace( "baddie.png", BasicGame.userChar.character.sprite) );
+    this.load.image('bullet', defaultPath.replace( "baddie.png", BasicGame.userChar.projectile1.sprite) );
+    this.load.image('bullet', defaultPath.replace( "baddie.png", BasicGame.userChar.projectile1.sprite) );
     BasicGame.enemyChar1 = ( BasicGame.game.cache.getJSON('enemies').enemy0 );
     BasicGame.enemyChar2 = ( BasicGame.game.cache.getJSON('enemies').enemy1 );
     //BasicGame.biome = BasicGame.game.load.json( 'biome', 'biomes/' + BasicGame.biomeID + '.json' );
