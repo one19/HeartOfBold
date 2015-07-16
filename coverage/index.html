@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-07-15T13:42:26+10:00">2015-07-15T13:42:26+10:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-07-16T14:13:38+10:00">2015-07-16T14:13:38+10:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.9%</span></span>
+    (<span class="covered_percent"><span class="green">98.39%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.4
+         4.36
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>100</b> files in total.
-    <b>1916</b> relevant lines. 
-    <span class="green"><b>1895</b> lines covered</span> and
-    <span class="red"><b>21</b> lines missed </span>
+    <b>1930</b> relevant lines. 
+    <span class="green"><b>1899</b> lines covered</span> and
+    <span class="red"><b>31</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -82,12 +82,12 @@
       
       <tr>
         <td class="strong"><a href="#0da56bff792b06bdff3f701b0b8a8bef2c484228" class="src_link" title="app/controllers/characters_controller.rb">app/controllers/characters_controller.rb</a></td>
-        <td class="green strong">91.89 %</td>
-        <td>80</td>
-        <td>37</td>
-        <td>34</td>
-        <td>3</td>
-        <td>2.7</td>
+        <td class="red strong">73.47 %</td>
+        <td>96</td>
+        <td>49</td>
+        <td>36</td>
+        <td>13</td>
+        <td>2.1</td>
       </tr>
       
       <tr>
@@ -167,7 +167,7 @@
         <td>39</td>
         <td>39</td>
         <td>0</td>
-        <td>15.5</td>
+        <td>15.4</td>
       </tr>
       
       <tr>
@@ -177,7 +177,7 @@
         <td>16</td>
         <td>16</td>
         <td>0</td>
-        <td>52.8</td>
+        <td>52.4</td>
       </tr>
       
       <tr>
@@ -353,9 +353,9 @@
       <tr>
         <td class="strong"><a href="#6419faa85a4dfc7bcc99b7482fe3a2776d3039fd" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>97</td>
-        <td>18</td>
-        <td>18</td>
+        <td>100</td>
+        <td>20</td>
+        <td>20</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -2113,11 +2113,11 @@
         <div class="source_table" id="0da56bff792b06bdff3f701b0b8a8bef2c484228">
   <div class="header">
     <h3>app/controllers/characters_controller.rb</h3>
-    <h4><span class="green">91.89 %</span> covered</h4>
+    <h4><span class="red">73.47 %</span> covered</h4>
     <div>
-      <b>37</b> relevant lines. 
-      <span class="green"><b>34</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
+      <b>49</b> relevant lines. 
+      <span class="green"><b>36</b> lines covered</span> and
+      <span class="red"><b>13</b> lines missed.</span>
     </div>
   </div>
   
@@ -2214,172 +2214,172 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby">  # GET /characters/1</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby">  # GET /characters/1.json</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">  def show</code>
+          <code class="ruby">  def user</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="missed" data-hits="0" data-linenumber="17">
+          
+          
+          <code class="ruby">    @character = Character.all.sample</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="18">
+          
+          
+          <code class="ruby">    @gun = Gun.all.sample</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="19">
+          
+          
+          <code class="ruby">    @ability = Ability.all.sample</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="20">
+          
+          
+          <code class="ruby">    @projectiles = Projectile.all.sample(2)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="21">
+          
+          
+          <code class="ruby">    @biome = Biome.first</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="22">
+          
+          
+          <code class="ruby">    @rooms = Room.all</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
-          
-          
-          <code class="ruby">  # GET /characters/new</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="22">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def new</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @character = Character.new</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="25">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
-          <code class="ruby">  # GET /characters/1/edit</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="27">
+        <li class="covered" data-hits="1" data-linenumber="25">
           <span class="hits">1</span>
           
-          <code class="ruby">  def edit</code>
+          <code class="ruby">  def enemies</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="missed" data-hits="0" data-linenumber="26">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    @character = Character.all.sample(2)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    @gun = Gun.all.sample(2)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="28">
+          
+          
+          <code class="ruby">    @ability = Ability.all.sample(2)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
+          
+          <code class="ruby">    @projectiles = Projectile.all.sample(2)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
           
           
-          <code class="ruby">  # POST /characters</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">  # POST /characters.json</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">  # GET /characters/1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">  # GET /characters/1.json</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">  def create</code>
+          <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="33">
-          <span class="hits">5</span>
+        <li class="never" data-hits="" data-linenumber="35">
           
-          <code class="ruby">    @character = Character.new(character_params)</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="35">
-          <span class="hits">5</span>
+        <li class="never" data-hits="" data-linenumber="37">
           
-          <code class="ruby">    respond_to do |format|</code>
+          
+          <code class="ruby">  # GET /characters/new</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="36">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
           
-          <code class="ruby">      if @character.save</code>
+          <code class="ruby">  def new</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="37">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
           
-          <code class="ruby">        format.html { redirect_to @character, notice: &#39;Character was successfully created.&#39; }</code>
+          <code class="ruby">    @character = Character.new</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="38">
-          <span class="hits">3</span>
+        <li class="never" data-hits="" data-linenumber="40">
           
-          <code class="ruby">        format.json { render :show, status: :created, location: @character }</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby">      else</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="40">
-          <span class="hits">4</span>
-          
-          <code class="ruby">        format.html { render :new }</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="41">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        format.json { render json: @character.errors, status: :unprocessable_entity }</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="42">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">  # GET /characters/1/edit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="covered" data-hits="1" data-linenumber="43">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">  def edit</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
@@ -2397,175 +2397,175 @@
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">  # PATCH/PUT /characters/1</code>
+          <code class="ruby">  # POST /characters</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">  # PATCH/PUT /characters/1.json</code>
+          <code class="ruby">  # POST /characters.json</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="48">
           <span class="hits">1</span>
           
-          <code class="ruby">  def update</code>
+          <code class="ruby">  def create</code>
         </li>
       
         <li class="covered" data-hits="5" data-linenumber="49">
           <span class="hits">5</span>
           
+          <code class="ruby">    @character = Character.new(character_params)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="51">
+          <span class="hits">5</span>
+          
           <code class="ruby">    respond_to do |format|</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="50">
+        <li class="covered" data-hits="5" data-linenumber="52">
           <span class="hits">5</span>
           
-          <code class="ruby">      if @character.update(character_params)</code>
+          <code class="ruby">      if @character.save</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="51">
+        <li class="covered" data-hits="6" data-linenumber="53">
           <span class="hits">6</span>
           
-          <code class="ruby">        format.html { redirect_to @character, notice: &#39;Character was successfully updated.&#39; }</code>
+          <code class="ruby">        format.html { redirect_to @character, notice: &#39;Character was successfully created.&#39; }</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="52">
+        <li class="covered" data-hits="3" data-linenumber="54">
           <span class="hits">3</span>
           
-          <code class="ruby">        format.json { render :show, status: :ok, location: @character }</code>
+          <code class="ruby">        format.json { render :show, status: :created, location: @character }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="55">
           
           
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="54">
+        <li class="covered" data-hits="4" data-linenumber="56">
           <span class="hits">4</span>
           
-          <code class="ruby">        format.html { render :edit }</code>
+          <code class="ruby">        format.html { render :new }</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="55">
+        <li class="covered" data-hits="2" data-linenumber="57">
           <span class="hits">2</span>
           
           <code class="ruby">        format.json { render json: @character.errors, status: :unprocessable_entity }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="58">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="59">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">  # DELETE /characters/1</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">  # DELETE /characters/1.json</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="62">
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">  # PATCH/PUT /characters/1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">  # PATCH/PUT /characters/1.json</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="64">
           <span class="hits">1</span>
           
-          <code class="ruby">  def destroy</code>
+          <code class="ruby">  def update</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="63">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    @character.destroy</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="64">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="65">
+          <span class="hits">5</span>
           
           <code class="ruby">    respond_to do |format|</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="65">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="66">
+          <span class="hits">5</span>
           
-          <code class="ruby">      format.html { redirect_to characters_url, notice: &#39;Character was successfully destroyed.&#39; }</code>
+          <code class="ruby">      if @character.update(character_params)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="66">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="6" data-linenumber="67">
+          <span class="hits">6</span>
           
-          <code class="ruby">      format.json { head :no_content }</code>
+          <code class="ruby">        format.html { redirect_to @character, notice: &#39;Character was successfully updated.&#39; }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="67">
+        <li class="covered" data-hits="3" data-linenumber="68">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">        format.json { render :show, status: :ok, location: @character }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="69">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="70">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="4" data-linenumber="70">
+          <span class="hits">4</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">        format.html { render :edit }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="covered" data-hits="2" data-linenumber="71">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+          <code class="ruby">        format.json { render json: @character.errors, status: :unprocessable_entity }</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="72">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="72">
           
-          <code class="ruby">    def set_character</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="73">
-          <span class="hits">9</span>
+        <li class="never" data-hits="" data-linenumber="73">
           
-          <code class="ruby">      @character = Character.find(params[:id])</code>
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="74">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="75">
@@ -2577,28 +2577,124 @@
         <li class="never" data-hits="" data-linenumber="76">
           
           
-          <code class="ruby">    # Never trust parameters from the scary internet, only allow the white list through.</code>
+          <code class="ruby">  # DELETE /characters/1</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="77">
+          
+          
+          <code class="ruby">  # DELETE /characters/1.json</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="78">
           <span class="hits">1</span>
           
-          <code class="ruby">    def character_params</code>
+          <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="78">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="2" data-linenumber="79">
+          <span class="hits">2</span>
           
-          <code class="ruby">      params.require(:character).permit(:name, :exp, :hp, :hp_regen, :power, :power_regen, :speed, :size, :move_type, :element, :color_schema, :emblem, :functions, :sprite, :sprite_idle, :sprite_death, :sprite_hat, :sprite_jacket, :sprite_shoes, :sprite_scarf, :user_id, :prime_gun_id, :secondary_gun_id, :prime_ability_id, :secondary_ability_id)</code>
+          <code class="ruby">    @character.destroy</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="79">
+        <li class="covered" data-hits="2" data-linenumber="80">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    respond_to do |format|</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="81">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      format.html { redirect_to characters_url, notice: &#39;Character was successfully destroyed.&#39; }</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="82">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      format.json { head :no_content }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="83">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="80">
+        <li class="never" data-hits="" data-linenumber="84">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="86">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="87">
+          
+          
+          <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="88">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def set_character</code>
+        </li>
+      
+        <li class="covered" data-hits="9" data-linenumber="89">
+          <span class="hits">9</span>
+          
+          <code class="ruby">      @character = Character.find(params[:id])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="90">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="91">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="92">
+          
+          
+          <code class="ruby">    # Never trust parameters from the scary internet, only allow the white list through.</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="93">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def character_params</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="94">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      params.require(:character).permit(:name, :exp, :hp, :hp_regen, :power, :power_regen, :speed, :size, :move_type, :element, :color_schema, :emblem, :functions, :sprite, :sprite_idle, :sprite_death, :sprite_hat, :sprite_jacket, :sprite_shoes, :sprite_scarf, :user_id, :prime_gun_id, :secondary_gun_id, :prime_ability_id, :secondary_ability_id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="96">
           
           
           <code class="ruby">end</code>
@@ -5262,14 +5358,14 @@
           <code class="ruby">    if b == 0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="53">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="53">
+          <span class="hits">5</span>
           
           <code class="ruby">      self.hp += 3</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="54">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="54">
+          <span class="hits">5</span>
           
           <code class="ruby">      self.power = 0</code>
         </li>
@@ -5280,20 +5376,20 @@
           <code class="ruby">    elsif b == 1</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="56">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="56">
+          <span class="hits">3</span>
           
           <code class="ruby">      self.hp += 1</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="57">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="57">
+          <span class="hits">3</span>
           
           <code class="ruby">      self.power += 1</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="58">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="58">
+          <span class="hits">3</span>
           
           <code class="ruby">      self.power_regen += 1</code>
         </li>
@@ -5310,8 +5406,8 @@
           <code class="ruby">    powers = @abilities.sample(b)</code>
         </li>
       
-        <li class="covered" data-hits="72" data-linenumber="61">
-          <span class="hits">72</span>
+        <li class="covered" data-hits="65" data-linenumber="61">
+          <span class="hits">65</span>
           
           <code class="ruby">    powers.uniq.each { |el| self.abilities &lt;&lt; el }</code>
         </li>
@@ -5328,26 +5424,26 @@
           <code class="ruby">    if powers.uniq.length == 1</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="64">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="64">
+          <span class="hits">3</span>
           
           <code class="ruby">      self.prime_ability_id = self.abilities.first[&#39;id&#39;]</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="65">
-          <span class="hits">24</span>
+        <li class="covered" data-hits="23" data-linenumber="65">
+          <span class="hits">23</span>
           
           <code class="ruby">    elsif powers.uniq.length == 2</code>
         </li>
       
-        <li class="covered" data-hits="22" data-linenumber="66">
-          <span class="hits">22</span>
+        <li class="covered" data-hits="18" data-linenumber="66">
+          <span class="hits">18</span>
           
           <code class="ruby">      self.prime_ability_id = self.abilities.first[&#39;id&#39;]</code>
         </li>
       
-        <li class="covered" data-hits="22" data-linenumber="67">
-          <span class="hits">22</span>
+        <li class="covered" data-hits="18" data-linenumber="67">
+          <span class="hits">18</span>
           
           <code class="ruby">      self.secondary_ability_id = self.abilities.last[&#39;id&#39;]</code>
         </li>
@@ -5400,14 +5496,14 @@
           <code class="ruby">    if a == 1</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="76">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="76">
+          <span class="hits">10</span>
           
           <code class="ruby">      self.hp += 2</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="77">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="77">
+          <span class="hits">10</span>
           
           <code class="ruby">      self.speed = self.speed + 50</code>
         </li>
@@ -5424,8 +5520,8 @@
           <code class="ruby">    gunnage = @guns.sample(a)</code>
         </li>
       
-        <li class="covered" data-hits="70" data-linenumber="80">
-          <span class="hits">70</span>
+        <li class="covered" data-hits="68" data-linenumber="80">
+          <span class="hits">68</span>
           
           <code class="ruby">    gunnage.uniq.each { |el| self.guns &lt;&lt; el }</code>
         </li>
@@ -5448,8 +5544,8 @@
           <code class="ruby">    if gunnage.uniq.length == 2</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="84">
-          <span class="hits">18</span>
+        <li class="covered" data-hits="16" data-linenumber="84">
+          <span class="hits">16</span>
           
           <code class="ruby">      self.secondary_gun_id = self.guns.last[&#39;id&#39;]</code>
         </li>
@@ -5802,14 +5898,14 @@
           <code class="ruby">    if a == 1</code>
         </li>
       
-        <li class="covered" data-hits="78" data-linenumber="46">
-          <span class="hits">78</span>
+        <li class="covered" data-hits="73" data-linenumber="46">
+          <span class="hits">73</span>
           
           <code class="ruby">      self.damage +=1</code>
         </li>
       
-        <li class="covered" data-hits="78" data-linenumber="47">
-          <span class="hits">78</span>
+        <li class="covered" data-hits="73" data-linenumber="47">
+          <span class="hits">73</span>
           
           <code class="ruby">      self.clip_size = ( self.clip_size * 1.25 ).floor</code>
         </li>
@@ -5838,8 +5934,8 @@
           <code class="ruby">    projects = @projectiles.sample(a)</code>
         </li>
       
-        <li class="covered" data-hits="247" data-linenumber="52">
-          <span class="hits">247</span>
+        <li class="covered" data-hits="251" data-linenumber="52">
+          <span class="hits">251</span>
           
           <code class="ruby">    projects.uniq.each { |el| self.projectiles &lt;&lt; el }</code>
         </li>
@@ -9297,8 +9393,8 @@
     <h3>config/routes.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>18</b> relevant lines. 
-      <span class="green"><b>18</b> lines covered</span> and
+      <b>20</b> relevant lines. 
+      <span class="green"><b>20</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -9783,106 +9879,124 @@
         <li class="covered" data-hits="1" data-linenumber="80">
           <span class="hits">1</span>
           
-          <code class="ruby">  get &quot;biomes/ids&quot; =&gt; &quot;biomes#ids&quot;</code>
+          <code class="ruby">  get &quot;about/&quot; =&gt; &quot;pages#about&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="81">
           <span class="hits">1</span>
           
-          <code class="ruby">  resources :biomes</code>
+          <code class="ruby">  root to: &quot;pages#home&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="82">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="82">
           
-          <code class="ruby">  get &quot;rooms/ids&quot; =&gt; &quot;rooms#ids&quot;</code>
+          
+          <code class="ruby">  </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="83">
           <span class="hits">1</span>
           
-          <code class="ruby">  resources :rooms</code>
+          <code class="ruby">  get &quot;biomes/ids&quot; =&gt; &quot;biomes#ids&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="84">
           <span class="hits">1</span>
           
-          <code class="ruby">  get &quot;titles/ids&quot; =&gt; &quot;titles#ids&quot;</code>
+          <code class="ruby">  resources :biomes</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="85">
           <span class="hits">1</span>
           
-          <code class="ruby">  resources :titles</code>
+          <code class="ruby">  get &quot;rooms/ids&quot; =&gt; &quot;rooms#ids&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="86">
           <span class="hits">1</span>
           
-          <code class="ruby">  get &quot;abilities/ids&quot; =&gt; &quot;abilities#ids&quot;</code>
+          <code class="ruby">  resources :rooms</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="87">
           <span class="hits">1</span>
           
-          <code class="ruby">  resources :abilities</code>
+          <code class="ruby">  get &quot;titles/ids&quot; =&gt; &quot;titles#ids&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="88">
           <span class="hits">1</span>
           
-          <code class="ruby">  get &quot;projectiles/ids&quot; =&gt; &quot;projectiles#ids&quot;</code>
+          <code class="ruby">  resources :titles</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="89">
           <span class="hits">1</span>
           
-          <code class="ruby">  resources :projectiles</code>
+          <code class="ruby">  get &quot;abilities/ids&quot; =&gt; &quot;abilities#ids&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="90">
           <span class="hits">1</span>
           
-          <code class="ruby">  get &quot;guns/ids&quot; =&gt; &quot;guns#ids&quot;</code>
+          <code class="ruby">  resources :abilities</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="91">
           <span class="hits">1</span>
           
-          <code class="ruby">  resources :guns</code>
+          <code class="ruby">  get &quot;projectiles/ids&quot; =&gt; &quot;projectiles#ids&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="92">
           <span class="hits">1</span>
           
-          <code class="ruby">  get &quot;characters/ids&quot; =&gt; &quot;characters#ids&quot;</code>
+          <code class="ruby">  resources :projectiles</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="93">
           <span class="hits">1</span>
           
-          <code class="ruby">  resources :characters</code>
+          <code class="ruby">  get &quot;guns/ids&quot; =&gt; &quot;guns#ids&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="94">
           <span class="hits">1</span>
           
-          <code class="ruby">  devise_for :users</code>
+          <code class="ruby">  resources :guns</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="95">
           <span class="hits">1</span>
           
-          <code class="ruby">  get &quot;about/&quot; =&gt; &quot;pages#about&quot;</code>
+          <code class="ruby">  get &quot;characters/user&quot; =&gt; &quot;characters#user&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="96">
           <span class="hits">1</span>
           
-          <code class="ruby">  root to: &quot;pages#home&quot;</code>
+          <code class="ruby">  get &quot;characters/enemies&quot; =&gt; &quot;characters#enemies&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="97">
+        <li class="covered" data-hits="1" data-linenumber="97">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  get &quot;characters/ids&quot; =&gt; &quot;characters#ids&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="98">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  resources :characters</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="99">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  devise_for :users</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="100">
           
           
           <code class="ruby">end</code>
@@ -29079,7 +29193,7 @@
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_select &quot;#container&quot;, :presence =&gt; true</code>
+          <code class="ruby">    assert_select &quot;#gameContainer&quot;, :presence =&gt; true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">

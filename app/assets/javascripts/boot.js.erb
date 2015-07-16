@@ -33,7 +33,8 @@ var BasicGame = {
   lastAkimbo: 0,
   spread: 0,
   aimSpread: 0,
-  maxSpread: 10
+  maxSpread: 10,
+  proj_number: 1
 };
 
 BasicGame.Boot = function (game) {
@@ -68,15 +69,8 @@ BasicGame.Boot.prototype = {
     this.load.image('titlePage', '<%= image_url("titlepage.png") %>');
     this.load.image('preloaderBar', '<%= image_url("preloader-bar.png") %>');
     
-
-
-    this.load.json('biomeIDs', '/biomes/ids.json');
-    this.load.json('characterIDs', '/characters/ids.json');
-    this.load.json('abilityIDs', '/abilities/ids.json');
-    this.load.json('gunIDs', '/guns/ids.json');
-    this.load.json('projectileIDs', '/projectiles/ids.json');
-    this.load.json('roomIDs', '/rooms/ids.json');
-    this.load.json('titleIDs', '/titles/ids.json');
+    this.load.json('character', '/characters/user.json');
+    this.load.json('enemies', '/characters/enemies.json');
   },
 
   create: function () {

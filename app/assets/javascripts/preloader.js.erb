@@ -27,7 +27,14 @@ BasicGame.Preloader.prototype = {
     this.load.image('ground', '<%= image_url("platform.png") %>');
     this.load.image('star', '<%= image_url("star.png") %>');
     this.load.spritesheet('dude', '<%= image_url("dude.png") %>', 32, 48);
-    this.load.spritesheet('baddie', '<%= image_url("baddie.png") %>', 32, 32);
+    this.load.spritesheet('baddie', '<%= image_url("bullet.png") %>');
+
+    //BasicGame.biomeIDs = BasicGame.game.cache.getJSON('biomeIDs');
+    //console.log(BasicGame.biomeIDs);
+    BasicGame.userChar = ( BasicGame.game.cache.getJSON('character') );
+    BasicGame.enemyChar1 = ( BasicGame.game.cache.getJSON('enemies').enemy0 );
+    BasicGame.enemyChar2 = ( BasicGame.game.cache.getJSON('enemies').enemy1 );
+    //BasicGame.biome = BasicGame.game.load.json( 'biome', 'biomes/' + BasicGame.biomeID + '.json' );
 
   },
 

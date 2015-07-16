@@ -77,6 +77,9 @@
 #
 
 Rails.application.routes.draw do
+  get "about/" => "pages#about"
+  root to: "pages#home"
+  
   get "biomes/ids" => "biomes#ids"
   resources :biomes
   get "rooms/ids" => "rooms#ids"
@@ -89,9 +92,9 @@ Rails.application.routes.draw do
   resources :projectiles
   get "guns/ids" => "guns#ids"
   resources :guns
+  get "characters/user" => "characters#user"
+  get "characters/enemies" => "characters#enemies"
   get "characters/ids" => "characters#ids"
   resources :characters
   devise_for :users
-  get "about/" => "pages#about"
-  root to: "pages#home"
 end

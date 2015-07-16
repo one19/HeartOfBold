@@ -13,6 +13,24 @@ class CharactersController < ApplicationController
     characters.each { |el| @ids.push el.id }
   end
 
+  def user
+    @character = Character.all.sample
+    @gun = Gun.all.sample
+    @ability = Ability.all.sample
+    @projectiles = Projectile.all.sample(2)
+    @title = Title.all.sample
+    @biome = Biome.first
+    @rooms = Room.all
+  end
+
+  def enemies
+    @character = Character.all.sample(2)
+    @gun = Gun.all.sample(2)
+    @ability = Ability.all.sample(2)
+    @projectiles = Projectile.all.sample(2)
+    @title = Title.all.sample(2)
+  end
+
   # GET /characters/1
   # GET /characters/1.json
   def show
